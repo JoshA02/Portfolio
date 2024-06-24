@@ -1,0 +1,62 @@
+nav {
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+}
+
+/* Must be perfectly centered inside nav */
+nav .links {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav .links .link {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px; /* 127.778% */
+  letter-spacing: -0.44px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+nav .links .link:hover {
+  animation: hover 0.2s forwards ease-in-out;
+}
+nav .links .link.active {
+  color: var(--primary);
+  animation: active 0.2s forwards ease-in-out;
+}
+nav .personalise {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Keyframes */
+@keyframes active {
+  0% {
+    font-weight: 600;
+    text-decoration: underline 0px var(--primary);
+  }
+  100% {
+    font-weight: 750;
+    text-decoration: underline 4px var(--primary);
+  }
+}
+
+@keyframes hover {
+  0% {
+    text-decoration: underline 0px var(--foreground-hover);
+  }
+  100% {
+    text-decoration: underline 4px var(--foreground-hover);
+  }
+}
