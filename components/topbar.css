@@ -3,6 +3,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 1rem;
 }
 nav .logo {
   object-fit: cover;
@@ -33,6 +34,7 @@ nav .links .link:hover {
 }
 nav .links .link.active {
   color: var(--primary);
+  text-decoration: underline 4px var(--primary);
   animation: active 0.2s forwards ease-in-out;
 }
 nav .personalise {
@@ -44,11 +46,9 @@ nav .personalise {
 @keyframes active {
   0% {
     font-weight: 600;
-    text-decoration: underline 0px var(--primary);
   }
   100% {
     font-weight: 750;
-    text-decoration: underline 4px var(--primary);
   }
 }
 
