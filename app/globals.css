@@ -8,15 +8,99 @@
   --primary: #1882FF;
   --primary-hover: #0F62FE;
   --foreground-hover: #b6b6b6;
+  --tooltip: #777;
+  --container: theme(colors.container);
+  --input-outline: #575757;
+  --button-outline: #8F8F8F;
+  --danger: #FF453A;
+  --shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.20);
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
+h1 {
+  font-size: 1.625rem; /* 26px */
+  font-weight: 600;
+  line-height: 23px; /* 88.462% */
+  color: var(--foreground);
+  letter-spacing: -0.44px;
+  margin-bottom: 1rem;
+}
+span {
+  color: var(--tooltip);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: -0.44px;
+}
+input, textarea {
+  background-color: var(--container);
+  color: var(--foreground);
+  padding: 0.5rem;
+  border: 1px solid var(--input-outline);
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 12px;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--tooltip);
+  opacity: 0.4;
+}
+button {
+  color: var(--foreground);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 23px; /* 164.286% */
+  letter-spacing: -0.44px;
+  padding: 4px 22px;
+  border-radius: 7px;
+  border: 1px solid var(--button-outline);
+  box-shadow: var(--shadow);
+  width: min-content;
+}
+
+
+/* Scrollbar - Begin */
+
+/* WebKit browsers */
+textarea::-webkit-scrollbar {
+  width: 8px; /* Adjust as needed */
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent; /* Hide the background */
+}
+textarea::-webkit-scrollbar-thumb {
+  background: var(--tooltip); /* Style the thumb */
+  border-radius: 4px; /* Optional: make the thumb rounded */
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7); /* Optional: style the thumb on hover */
+}
+
+/* Firefox */
+textarea {
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: var(--tooltip) transparent; /* Style the thumb and hide the track */
+}
+
+/* Scrollbar - End */
+
+
+.shake {
+  animation: shake 0.3s forwards;
+  transition: all;
+}
+
 
 @layer utilities {
   .text-balance {
