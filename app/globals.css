@@ -84,7 +84,7 @@ button:disabled {
   opacity: 0.5;
   color: var(--tooltip);
   box-shadow: none;
-  cursor: none;
+  cursor: not-allowed;
 }
 
 

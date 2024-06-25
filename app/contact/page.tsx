@@ -1,18 +1,19 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import './style.css';
 import {useFormState, useFormStatus} from 'react-dom';
 import {submitContact} from '@/actions/submitContact';
 
-const initialFormState = {
+const initialFormState: {email: string, message: string} = {
   email: '',
   message: ''
 };
 
-function SubmitButton() {
+function SubmitButton({disabled}: {disabled: boolean}) {
   const {pending} = useFormStatus();
-  return <button disabled={pending} className='bg-container'>Send</button>
+
+  return <button disabled={pending || disabled} className='bg-container'>Send</button>
 }
 
 export default function Contact() {
@@ -20,6 +21,7 @@ export default function Contact() {
   const [charCount, setCharCount] = useState(0);
   const [doShake, setDoShake] = useState(false);
   const maxLength = 2500;
+  const [formValid, setFormValid] = useState(false);
 
   // Update character count
   function updateCharCount(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -34,17 +36,18 @@ export default function Contact() {
     setTimeout(() => setDoShake(false), 300); // Reset doShake after 1 second
   }
 
-  // Submit form
+  // Check validity via HTML validation before submitting
   function submitForm(e: React.FormEvent<HTMLFormElement>) {
     if(!e.currentTarget.checkValidity()){
       alert('Please fill out all fields correctly');
-      return e.preventDefault();
+      return e.preventDefault(); // Prevent form submission
     }
-    // Allow form submission
+
+    // Allow form submission (default behavior)
   }
 
   return (
-    <form action={formAction} onSubmit={(e) => submitForm(e)} noValidate className='bg-container px-4 py-7 rounded-t-md md:w-3/4 lg:w-1/2 xl:w-1/3 w-3/4 flex flex-col'>
+    <form action={formAction} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container px-4 py-7 rounded-t-md md:w-3/4 lg:w-1/2 xl:w-1/3 w-3/4 flex flex-col'>
       <h1>Get in touch!</h1>
       <h3 className={formState?.message?.toLowerCase() == 'response received!' ? 'text-primary' : 'text-danger'}>{formState.message}</h3>
 
@@ -58,7 +61,7 @@ export default function Contact() {
         {/* Char count: */}
         <span className={'text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
       </div>
-      <SubmitButton/>
+      <SubmitButton disabled={!formValid}/>
     </form>
   );
 }
