@@ -11,5 +11,5 @@ export async function submitContact(_prevState: any, formData: FormData) {
   // wait 4 seconds
   await new Promise((resolve) => setTimeout(resolve, 4000));
 
-  return {message: 'Form submitted!'};
+  return {message: 'Response received!'};
 }

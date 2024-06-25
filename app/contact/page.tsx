@@ -46,7 +46,7 @@ export default function Contact() {
   return (
     <form action={formAction} onSubmit={(e) => submitForm(e)} noValidate className='bg-container px-4 py-7 rounded-t-md md:w-3/4 lg:w-1/2 xl:w-1/3 w-3/4 flex flex-col'>
       <h1>Get in touch!</h1>
-      <span>{formState.message}</span>
+      <h3 className={formState?.message?.toLowerCase() == 'response received!' ? 'text-primary' : 'text-danger'}>{formState.message}</h3>
 
       <span>email</span>
       <input type='email' name='email' required placeholder='email@domain.com'/>

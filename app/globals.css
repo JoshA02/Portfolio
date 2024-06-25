@@ -5,14 +5,14 @@
 :root {
   --foreground: #FFF;
   --background: #0A0A0A;
-  --primary: #1882FF;
+  --primary: theme(colors.primary);
   --primary-hover: #0F62FE;
   --foreground-hover: #b6b6b6;
   --tooltip: #777;
   --container: theme(colors.container);
   --input-outline: #575757;
   --button-outline: #8F8F8F;
-  --danger: #FF453A;
+  --danger: theme(colors.danger);
   --shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.20);
 }
 
@@ -31,6 +31,14 @@ h1 {
   font-size: 1.625rem; /* 26px */
   font-weight: 600;
   line-height: 23px; /* 88.462% */
+  color: var(--foreground);
+  letter-spacing: -0.44px;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  line-height: 23px; /* 128.571% */
   color: var(--foreground);
   letter-spacing: -0.44px;
   margin-bottom: 1rem;
