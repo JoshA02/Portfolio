@@ -55,6 +55,9 @@ input::placeholder, textarea::placeholder {
   color: var(--tooltip);
   opacity: 0.4;
 }
+input:invalid:not(:placeholder-shown), textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--danger);
+}
 button {
   color: var(--foreground);
   text-align: center;
@@ -67,6 +70,13 @@ button {
   border: 1px solid var(--button-outline);
   box-shadow: var(--shadow);
   width: min-content;
+  transition: all 0.3s;
+}
+button:disabled {
+  opacity: 0.5;
+  color: var(--tooltip);
+  box-shadow: none;
+  cursor: none;
 }
 
 
