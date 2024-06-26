@@ -23,10 +23,8 @@ export default function Contact() {
   const maxLength = 2500;
   const [formValid, setFormValid] = useState(false);
 
-  // Update character count
-  function updateCharCount(e: React.KeyboardEvent<HTMLTextAreaElement>) {
-    setCharCount(e.currentTarget.value.length);
-
+  // See if the user has typed too much. If so, shake the textarea
+  function checkMessageLimit(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     // Shake if user types too much. Ignore non-character keys (Enter, Backspace, Delete, Arrow keys)
     if (charCount < maxLength || e.key === 'Enter' || e.key === 'Backspace' || e.key === 'Delete' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       return;
@@ -56,7 +54,7 @@ export default function Contact() {
 
       <span>message</span>
       <div className={'flex flex-col relative mb-3' + (doShake ? ' shake' : '')}>
-        <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={maxLength} onKeyDown={(e) => updateCharCount(e)}/>
+        <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={maxLength} onChange={(e) => setCharCount(e.currentTarget.textLength)} onKeyDown={(e) => checkMessageLimit(e)}/>
 
         {/* Char count: */}
         <span className={'text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
