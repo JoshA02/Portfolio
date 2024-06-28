@@ -8,6 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        'fade': "fade 3s ease-in-out forwards",
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      },
       colors: {
         'container': '#111',
         'primary': '#1882FF',

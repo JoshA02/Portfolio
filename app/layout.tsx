@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Topbar from '@/components/Topbar';
+import Canvas from '@/components/Canvas';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,8 +16,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Topbar />
-        <main>{children}</main>
+          <Canvas/>
+          <Topbar />
+          <main>{children}</main>
       </body>
     </html>
   );
