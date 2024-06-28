@@ -18,7 +18,7 @@
 
 .bg-gradient {
   opacity: 0;
-  animation: bg-fade 8s forwards;
+  animation: bg-fade 3s forwards;
 }
 
 body {

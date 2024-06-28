@@ -7,11 +7,11 @@ import Link from 'next/link';
 
 const syne = Syne({subsets: ['latin']});
 
-function SectionHeader({title}: {title: string}) {
+function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
   return (
     <h1 className='text-white font-black'>
       {title}<span className={'text-primary font-bolder ' + syne.className}>;</span>
-      <Comment message='work-in-progress'/>
+      <Comment message={subtitle}/>
     </h1>
   );
 }
@@ -56,10 +56,28 @@ function EducationItem({title, institution, startYear, endYear, imgSrc, uniHref,
 function Education() {
   return (
     <div className='mb-16'>
-      <SectionHeader title='education'/>
+      <SectionHeader title='education' subtitle='work-in-progress'/>
       <div className='gap-2 flex flex-col'>
         <EducationItem uniHref='https://nau.edu' imgSrc='/nau_light.svg' title='Exchange Study - Computer Science' institution='Northern Arizona University - Flagstaff, AZ, USA' startYear='2024' endYear='2025'/>
         <EducationItem uniHref='https://ntu.ac.uk' imgSrc='/ntu.svg' title='BSc (Hons) Software Engineering' institution='Nottingham Trent University - Nottingham, UK' startYear='2022' endYear='2026'/>
+      </div>
+    </div>
+  );
+}
+
+function FavouriteProjects() {
+  return (
+    <div>
+      <SectionHeader title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
+      <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-2'>
+          <h3 className='text-white font-bolder'>Personal Website</h3>
+          <p className='text-xs'>A personal website built with Next.js, Tailwind CSS, and TypeScript</p>
+        </div>
+        <div className='flex flex-col gap-2'>
+          <h3 className='text-white font-bolder'>Project 2</h3>
+          <p className='text-xs'>A project description</p>
+        </div>
       </div>
     </div>
   );
@@ -70,6 +88,7 @@ export default function Home() {
     <div>
       <AboutMe />
       <Education />
+      <FavouriteProjects />
     </div>
   );
 }
