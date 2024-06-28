@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function BlueLink({label, href}: {label: string, href: string}) {
+export default function NewTabLink({label, href}: {label: string, href: string}) {
   return (
     <div className='flex'>
       <Link href={href} className='blueLink'>{label}</Link>

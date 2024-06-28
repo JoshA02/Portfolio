@@ -25,7 +25,8 @@ const config: Config = {
         'code-b': '#B2759E',
         'code-c': '#958FE1',
         'lightgray': '#777',
-        'darkgray': '#575757'
+        'darkgray': '#575757',
+        'foregroundHover': '#b6b6b6'
       },
       fontWeight: {
         'bolder': '750',
