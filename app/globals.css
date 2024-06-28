@@ -8,9 +8,9 @@
   --primary: theme(colors.primary);
   --primary-hover: #0F62FE;
   --foreground-hover: #b6b6b6;
-  --tooltip: #777;
+  --tooltip: theme(colors.lightgray);
   --container: theme(colors.container);
-  --input-outline: #575757;
+  --input-outline: theme(colors.darkgray);
   --button-outline: #8F8F8F;
   --danger: theme(colors.danger);
   --shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.20);
@@ -26,6 +26,9 @@ main {
   padding: 1rem;
   display: flex;
   justify-content: center;
+}
+p {
+  font-size: 0.875rem;
 }
 h1 {
   font-size: 1.625rem; /* 26px */
@@ -43,7 +46,7 @@ h3 {
   letter-spacing: -0.44px;
   margin-bottom: 1rem;
 }
-span {
+.tooltip {
   color: var(--tooltip);
   font-size: 0.75rem;
   font-weight: 400;
@@ -85,6 +88,12 @@ button:disabled {
   color: var(--tooltip);
   box-shadow: none;
   cursor: not-allowed;
+}
+
+.blueLink {
+  color: var(--primary);
+  text-decoration: underline 1px;
+  font-weight: 300;
 }
 
 

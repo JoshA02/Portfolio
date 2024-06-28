@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        'fade': "fade 3s ease-in-out forwards",
+        'fade': "fade 1s ease-in-out forwards",
       },
       keyframes: {
         fade: {
@@ -21,6 +21,17 @@ const config: Config = {
         'container': '#111',
         'primary': '#1882FF',
         'danger': '#FF453A',
+        'code-a': '#7DDCBF',
+        'code-b': '#B2759E',
+        'code-c': '#958FE1',
+        'lightgray': '#777',
+        'darkgray': '#575757'
+      },
+      fontWeight: {
+        'bolder': '750',
+      },
+      dropShadow: {
+        'lg-white': '0 0px 10px rgb(255,255,255,0.6)',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

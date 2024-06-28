@@ -4,7 +4,6 @@ import "./globals.css";
 import Topbar from '@/components/Topbar';
 import Canvas from '@/components/Canvas';
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

@@ -49,15 +49,15 @@ export default function Contact() {
       <h1>Get in touch!</h1>
       <h3 className={formState?.message?.toLowerCase() == 'response received!' ? 'text-primary' : 'text-danger'}>{formState.message}</h3>
 
-      <span>email</span>
+      <span className='tooltip'>email</span>
       <input type='email' name='email' required placeholder='email@domain.com'/>
 
-      <span>message</span>
+      <span className='tooltip'>message</span>
       <div className={'flex flex-col relative mb-3' + (doShake ? ' shake' : '')}>
         <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={maxLength} onChange={(e) => setCharCount(e.currentTarget.textLength)} onKeyDown={(e) => checkMessageLimit(e)}/>
 
         {/* Char count: */}
-        <span className={'text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
+        <span className={'tooltip text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
       </div>
       <SubmitButton disabled={!formValid}/>
     </form>
