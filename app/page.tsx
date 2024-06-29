@@ -7,8 +7,6 @@ import Link from 'next/link';
 
 const syne = Syne({subsets: ['latin']});
 
-console.log('Hi');
-
 function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
   return (
     <h1 className='text-white font-black'>
