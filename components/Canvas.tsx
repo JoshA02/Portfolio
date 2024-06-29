@@ -1,13 +1,13 @@
 'use client';
 
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {ShaderGradientCanvas, ShaderGradient} from 'shadergradient';
 
 export default function Canvas() {
   return (
-    <div className='fixed w-screen h-screen overflow-hidden -z-10'>
+    <div className='fixed w-screen h-screen overflow-hidden -z-10 opacity-70'>
       <ShaderGradientCanvas
-        className='absolute bg-gradient w-screen h-screen scale-150'
+        className='absolute w-screen h-screen scale-150 bg-gradient'
       >
         <ShaderGradient
         animate='on'
