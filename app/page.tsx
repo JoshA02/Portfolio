@@ -36,19 +36,26 @@ function AboutMe() {
   );
 }
 
-function EducationItem({title, institution, startYear, endYear, imgSrc, uniHref, glow}: {title: string, institution: string, startYear: string, endYear: string, imgSrc: string, uniHref?: string, glow?: boolean}) {
+function EducationItem({title, institution, startDate, endDate, imgSrc, uniHref, glow}: {title: string, institution: string, startDate: Date, endDate: Date, imgSrc: string, uniHref?: string, glow?: boolean}) {
+  
+  const complete = new Date() > new Date(endDate);
+
   return (
     <div className='flex items-center'>
       <Link className={'w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}><Image src={imgSrc} alt="Nottingham Trent University logo" width={0} height={0} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/></Link>
       <div className='pl-2'>
-        <h3 className='text-white font-bold mb-1'>{title}</h3>
-        {/* <p className='text-xs'>{institution}</p>
-        <p className='text-xs'>{startYear} - {endYear}</p> */}
+        <div className='flex items-center gap-4 mb-1'>
+          <h3 className='text-white font-bold m-0'>{title}</h3>
+          <div className='flex items-center gap-1'>
+            <div className={'rounded-full w-3 aspect-square' + (complete ? ' bg-green-600' : ' bg-primary')}/>
+            <span className='text-xs text-gray-300'>{complete ? 'complete' : 'ongoing'}</span>
+          </div>
+        </div>
         <VariableText fontSize='13px' name='institution' type='string' value={(<span>
           <span className='text-code-a'> “</span>{institution}<span className='text-code-a'>”</span>
         </span>)}/>
         <VariableText fontSize='13px' name='startEndYears' type='string' value={(<span>
-          <span className='text-code-a'> “</span>{startYear} - {endYear}<span className='text-code-a'>“</span>
+          <span className='text-code-a'> “</span>{startDate.getFullYear()} - {endDate.getFullYear()}<span className='text-code-a'>“</span>
         </span>)}/>
       </div>
     </div>
@@ -60,8 +67,8 @@ function Education() {
     <div className='mb-16'>
       <SectionHeader title='education' subtitle='work-in-progress'/>
       <div className='gap-2 flex flex-col'>
-        <EducationItem uniHref='https://nau.edu' imgSrc='/nau_light.svg' title='Exchange Study - Computer Science' institution='Northern Arizona University - Flagstaff, AZ, USA' startYear='2024' endYear='2025'/>
-        <EducationItem uniHref='https://ntu.ac.uk' imgSrc='/ntu.svg' title='BSc (Hons) Software Engineering' institution='Nottingham Trent University - Nottingham, UK' startYear='2022' endYear='2026'/>
+        <EducationItem uniHref='https://nau.edu' imgSrc='/nau_light.svg' title='Study Exchange - Computer Science' institution='Northern Arizona University - Flagstaff, AZ, USA' startDate={new Date(2024, 8, 1)} endDate={new Date(2025, 5, 1)}/>
+        <EducationItem uniHref='https://ntu.ac.uk' imgSrc='/ntu.svg' title='BSc (Hons) Software Engineering' institution='Nottingham Trent University - Nottingham, UK' startDate={new Date(2022, 9, 1)} endDate={new Date(2026, 6, 1)}/>
       </div>
     </div>
   );
