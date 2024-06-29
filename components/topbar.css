@@ -4,7 +4,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin: 1rem;
-  margin-bottom: 84px;
+  margin-bottom: 4rem;
 }
 nav .logo {
   object-fit: cover;
@@ -14,7 +14,7 @@ nav .logo {
 
 /* Must be perfectly centered inside nav */
 nav .links {
-  display: flex;
+  display: contents;
   gap: 10rem;
   align-items: center;
   position: absolute;

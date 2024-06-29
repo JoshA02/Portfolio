@@ -7,6 +7,8 @@ import Link from 'next/link';
 
 const syne = Syne({subsets: ['latin']});
 
+console.log('Hi');
+
 function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
   return (
     <h1 className='text-white font-black'>
@@ -20,7 +22,7 @@ function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
 function AboutMe() {
   return (
     <div className='flex flex-row mb-16 bg-container bg-opacity-20 pr-4 rounded-md'>
-      <Image src="/profile.svg" alt="An avatar of me" width={0} height={0} className='w-max mr-4' />
+      <Image priority src="/profile.svg" alt="An avatar of me" width={0} height={0} className='w-max mr-4' />
       <div>
         <Image src="/logo.svg" className='h-8 w-auto mb-2 mt-2' width={0} height={0} alt='logo' />
         <VariableText name='intro' type='string' value={(<span>
@@ -41,13 +43,14 @@ function EducationItem({title, institution, startYear, endYear, imgSrc, uniHref,
       <Link className={'w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}><Image src={imgSrc} alt="Nottingham Trent University logo" width={0} height={0} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/></Link>
       <div>
         <h3 className='text-white font-bolder mb-1'>{title}</h3>
-        <p className='text-xs'>{institution}</p>
-        <p className='text-xs'>{startYear} - {endYear}</p>
-        {/* <VariableText fontSize='13px' name='institution' type='string' value={(<span>
+        {/* <p className='text-xs'>{institution}</p>
+        <p className='text-xs'>{startYear} - {endYear}</p> */}
+        <VariableText fontSize='13px' name='institution' type='string' value={(<span>
           <span className='text-code-a'> “</span>{institution}<span className='text-code-a'>”</span>
         </span>)}/>
-        <VariableText fontSize='13px' name='startYear' type='number' value={(<span> {startYear}</span>)}/>
-        <VariableText fontSize='13px' name='endYear' type='number' value={(<span> {endYear}</span>)}/> */}
+        <VariableText fontSize='13px' name='startEndYears' type='string' value={(<span>
+          <span className='text-code-a'> “</span>{startYear} - {endYear}<span className='text-code-a'>“</span>
+        </span>)}/>
       </div>
     </div>
   );
@@ -68,7 +71,7 @@ function Education() {
 function FavouriteProjects() {
   return (
     <div>
-      <SectionHeader title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
+      <SectionHeader title='favProjects' subtitle='made with care'/>
       <div className='flex flex-col gap-4'>
         <div className='flex flex-col gap-2'>
           <h3 className='text-white font-bolder'>Personal Website</h3>
