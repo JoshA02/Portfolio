@@ -38,10 +38,6 @@ nav .links .link.active {
   text-decoration: underline 4px var(--primary);
   animation: active 0.2s forwards ease-in-out;
 }
-nav .personalise {
-  display: flex;
-  gap: 1rem;
-}
 
 /* Keyframes */
 @keyframes active {

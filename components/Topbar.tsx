@@ -27,9 +27,7 @@ export default function Topbar() {
           <TopbarLink key={item.href} item={item} />
         ))}
       </div>
-      {/* <div className='personalise'>
-        ...
-      </div> */}
+      <div/>
     </nav>
   )
 };
