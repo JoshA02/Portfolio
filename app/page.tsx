@@ -41,7 +41,7 @@ function EducationItem({title, institution, startYear, endYear, imgSrc, uniHref,
     <div className='flex items-center'>
       <Link className={'w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}><Image src={imgSrc} alt="Nottingham Trent University logo" width={0} height={0} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/></Link>
       <div className='pl-2'>
-        <h3 className='text-white font-bolder mb-1'>{title}</h3>
+        <h3 className='text-white font-bold mb-1'>{title}</h3>
         {/* <p className='text-xs'>{institution}</p>
         <p className='text-xs'>{startYear} - {endYear}</p> */}
         <VariableText fontSize='13px' name='institution' type='string' value={(<span>
