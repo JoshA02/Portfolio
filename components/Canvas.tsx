@@ -5,7 +5,7 @@ import {ShaderGradientCanvas, ShaderGradient} from 'shadergradient';
 
 export default function Canvas() {
   return (
-    <div className='fixed w-screen h-screen overflow-hidden -z-10 opacity-70'>
+    <div className='fixed w-screen h-screen overflow-hidden -z-10 opacity-60'>
       <ShaderGradientCanvas
         className='absolute w-screen h-screen scale-150 bg-gradient'
       >

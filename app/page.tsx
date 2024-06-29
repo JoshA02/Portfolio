@@ -19,7 +19,8 @@ function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
 
 function AboutMe() {
   return (
-    <div className='flex flex-row mb-16 bg-container bg-opacity-20 pr-4 rounded-md'>
+    // <div className='flex flex-row mb-16 bg-container bg-opacity-20 pr-4 rounded-md'>
+    <div className='flex flex-row mb-16'>
       <Image priority src="/profile.svg" alt="An avatar of me" width={0} height={0} className='w-max mr-4' />
       <div>
         <Image src="/logo.svg" className='h-8 w-auto mb-2 mt-2' width={0} height={0} alt='logo' />
