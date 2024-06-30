@@ -22,6 +22,18 @@ export default function Contact() {
   const [doShake, setDoShake] = useState(false);
   const maxLength = 2500;
   const [formValid, setFormValid] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+  const test = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if(formState?.message.toLowerCase() === 'response received!') {
+      // Clear form after response received
+      test.current?.reset();
+      setCharCount(0);
+    }
+    return setStatusMessage(formState?.message || '');
+  }, [formState])
+  
 
   // See if the user has typed too much. If so, shake the textarea
   function checkMessageLimit(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -42,12 +54,13 @@ export default function Contact() {
     }
 
     // Allow form submission (default behavior)
+    setStatusMessage('Sending...');
   }
 
   return (
-    <form action={formAction} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container px-4 py-7 rounded-t-md md:w-3/4 lg:w-1/2 xl:w-1/3 w-3/4 flex flex-col'>
+    <form action={formAction} ref={test} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container px-4 py-7 rounded-t-md md:w-3/4 lg:w-1/2 xl:w-1/3 w-3/4 flex flex-col'>
       <h1>Get in touch!</h1>
-      <h3 className={formState?.message?.toLowerCase() == 'response received!' ? 'text-primary' : 'text-danger'}>{formState.message}</h3>
+      <h3 className={(statusMessage.toLowerCase() == 'response received!' || statusMessage.toLowerCase() === 'sending...') ? 'text-primary' : 'text-danger'}>{statusMessage}</h3>
 
       <span className='tooltip'>email</span>
       <input type='email' name='email' required placeholder='email@domain.com'/>

@@ -25,7 +25,7 @@ function AboutMe() {
       <div>
         <Image src="/logo.svg" className='h-8 w-auto mb-2 mt-2' width={0} height={0} alt='logo' />
         <VariableText name='intro' type='string' value={(<span>
-          <span className='text-code-a'> “</span>Hey 👋, my name is <strong>Josh</strong>\n<br/>And I'm a junior full-stack developer studying Software Engineering at <strong>Nottingham Trent University</strong><span className='text-code-a'>”</span>
+          <span className='text-code-a'> “</span>Hey 👋, I'm <strong>Josh</strong>\n<br/>And I'm a junior full-stack developer studying Software Engineering at <strong>Nottingham Trent University</strong><span className='text-code-a'>”</span>
         </span>)}/>
         <div className='gap-3 flex mt-1'>
           <NewTabLink href='https://github.com/JoshA02' label='gitHub'/>
@@ -42,7 +42,7 @@ function EducationItem({title, institution, startDate, endDate, imgSrc, uniHref,
 
   return (
     <div className='flex items-center'>
-      <Link className={'w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}><Image src={imgSrc} alt="Nottingham Trent University logo" width={0} height={0} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/></Link>
+      <Link target='_blank' className={'w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}><Image src={imgSrc} alt="Nottingham Trent University logo" width={0} height={0} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/></Link>
       <div className='pl-2'>
         <div className='flex items-center gap-4 mb-1'>
           <h3 className='text-white font-bold m-0'>{title}</h3>
