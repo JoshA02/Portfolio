@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.21",
     "@react-three/fiber": "^8.16.8",
     "@types/three": "^0.165.0",
     "framer-motion": "^11.2.12",
@@ -17,7 +20,7 @@
     "react": "^18",
     "react-dom": "^18",
     "shadergradient": "^1.2.14",
-    "three": "^0.165.0"
+    "three": "0.154.0"
   },
   "devDependencies": {
     "@types/node": "^20",
