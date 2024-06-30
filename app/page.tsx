@@ -7,9 +7,9 @@ import Link from 'next/link';
 
 const syne = Syne({subsets: ['latin']});
 
-function SectionHeader({title, subtitle}: {title: string, subtitle: string}) {
+function SectionHeader({title, subtitle, className}: {title: string, subtitle: string, className?: string}) {
   return (
-    <h1 className='text-white font-black'>
+    <h1 className={'text-white font-black ' + className}>
       {title}<span className={'text-primary font-bolder ' + syne.className}>;</span>
       <Comment message={subtitle}/>
     </h1>
@@ -51,10 +51,10 @@ function EducationItem({title, institution, startDate, endDate, imgSrc, uniHref,
             <span className='text-xs text-gray-300'>{complete ? 'complete' : 'ongoing'}</span>
           </div>
         </div>
-        <VariableText fontSize='13px' name='institution' type='string' value={(<span>
+        <VariableText fontSize='0.8125em' name='institution' type='string' value={(<span>
           <span className='text-code-a'> “</span>{institution}<span className='text-code-a'>”</span>
         </span>)}/>
-        <VariableText fontSize='13px' name='startEndYears' type='string' value={(<span>
+        <VariableText fontSize='0.8125em' name='startEndYears' type='string' value={(<span>
           <span className='text-code-a'> “</span>{startDate.getFullYear()} - {endDate.getFullYear()}<span className='text-code-a'>“</span>
         </span>)}/>
       </div>
@@ -77,7 +77,8 @@ function Education() {
 function FavouriteProjects() {
   return (
     <div>
-      <SectionHeader title='favProjects' subtitle='made with care'/>
+      <SectionHeader className='sm:hidden' title='favProjects' subtitle='made with care'/>
+      <SectionHeader className='hidden sm:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
       <div className='flex flex-col gap-4'>
         <div className='flex flex-col gap-2'>
           <h3 className='text-white font-bolder'>Personal Website</h3>
