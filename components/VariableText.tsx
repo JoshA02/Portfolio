@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function VariableText({name, type, value, fontSize}: {name: string, type: string, value: React.ReactNode, fontSize?: string|null}) {
   return (
-    <p className='text-lightgray' style={{fontSize: (fontSize || '0.875em')}}><span className='text-code-a'>const</span> <span className='text-code-b'>{name}</span>: <span className='text-code-c'>{type}</span> =
+    <p className='text-lightgray' style={fontSize ? {fontSize: (fontSize)} : {}}><span className='text-code-a'>const</span> <span className='text-code-b'>{name}</span>: <span className='text-code-c'>{type}</span> =
       <span className='text-white'>
         {value}
         {/* <span className='text-code-a'> “</span>Hey 👋, my name is <strong>Josh</strong>\n

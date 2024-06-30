@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Comment from '@/components/Comment';
 import VariableText from '@/components/VariableText';
 import Link from 'next/link';
+import Project from '@/components/Project';
 
 const syne = Syne({subsets: ['latin']});
 
@@ -76,19 +77,11 @@ function Education() {
 
 function FavouriteProjects() {
   return (
-    <div>
+    <div className=''>
       <SectionHeader className='sm:hidden' title='favProjects' subtitle='made with care'/>
       <SectionHeader className='hidden sm:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
-      <div className='flex flex-col gap-4'>
-        <div className='flex flex-col gap-2'>
-          <h3 className='text-white font-bolder'>Personal Website</h3>
-          <p className='text-xs'>A personal website built with Next.js, Tailwind CSS, and TypeScript</p>
-        </div>
-        <div className='flex flex-col gap-2'>
-          <h3 className='text-white font-bolder'>Project 2</h3>
-          <p className='text-xs'>A project description</p>
-        </div>
-      </div>
+
+      <Project title='Evently' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']}/>
     </div>
   );
 }
