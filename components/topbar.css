@@ -39,6 +39,13 @@ nav .links .link.active {
   animation: active 0.2s forwards ease-in-out;
 }
 
+/* Responsive Styling Stuff */
+@media screen and (max-width: 768px) {
+  nav {
+    margin-bottom: 2rem;
+  }
+}
+
 /* Keyframes */
 @keyframes active {
   0% {
