@@ -80,7 +80,7 @@ function FavouriteProjects() {
 
 export default function Home() {
   return (
-    <div>
+    <div className='flex flex-col lg:ml-32 xl:ml-52 md:ml-0'>
       <AboutMe />
       <Education />
       <FavouriteProjects />

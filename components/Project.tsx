@@ -10,13 +10,13 @@ export default function Project({title, miniImages, description, coverImage, lin
       
       {/* So many divs.......... */}
       <div className={'absolute w-full h-full opacity-20 transition-opacity ' + (fullWidth ? 'hover:opacity-40' : 'hover:opacity-25')}>
-        <div className={'absolute h-full ' + (fullWidth ? 'animate-float right-80' : '')}>
+        <div className={'absolute h-full ' + (fullWidth ? 'hidden md:inline animate-float right-80' : '')}>
           {coverImage && 
-            <Image src={coverImage} alt={coverImage} width={1000} height={1000}
+            <Image src={coverImage} alt={coverImage} width={200} height={1000}
               className={'relative transition-transform '
               + (fullWidth ? (
                 (randomRotations[Math.floor(Math.random() * randomRotations.length)])
-                + ' h-52 w-auto scale-250 translate-y-32') : 'w-full scale-150 hover:rotate-1'
+                + ' scale-250 translate-y-32') : 'w-full scale-150 hover:rotate-1'
               )}
             />
           }

@@ -28,9 +28,9 @@ body {
   flex-direction: column;
 }
 main {
-  padding: 1rem;
+  margin: 1rem;
   display: flex;
-  justify-content: center;
+  max-width: 100%;
 }
 p {
   font-size: 0.875rem;
