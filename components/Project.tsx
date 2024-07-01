@@ -10,8 +10,8 @@ export default function Project({title, miniImages, description, coverImage, lin
         <h3 className='text-white font-bold m-0'>{title}</h3>
         <div className='flex gap-1.5 items-center'>
           {miniImages.map((img, i) => (
-            <div className='contents'>
-              <img key={i} src={img} alt={img} className='w-auto'/>
+            <div className='contents' key={title}>
+              <img key={title} src={img} alt={img} className='w-auto'/>
               {i < miniImages.length - 1 && <span className='font-bold'>·</span>}
             </div>
           ))}
