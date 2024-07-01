@@ -2,10 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
 
-export default function Project({title, miniImages, description, coverImage, link}: {title: string, miniImages: string[], description: string, coverImage: string, link?: string}) {
+export default function Project({title, miniImages, description, coverImage, link}: {title: string, miniImages: string[], description: string, coverImage?: string, link?: string}) {
   return (
     <div className='bg-container max-w-80 aspect-video rounded-lg p-2 relative overflow-hidden animate-fade'>
-      <Image src={coverImage} alt={coverImage} width={1000} height={1000} className='absolute w-full scale-150 opacity-20 hover:opacity-25 hover:rotate-1 transition-all'/>
+      {coverImage && <Image src={coverImage} alt={coverImage} width={1000} height={1000} className='absolute w-full scale-150 opacity-20 hover:opacity-25 hover:rotate-1 transition-all'/>}
       <div className='flex gap-3 items-center'>
         <h3 className='text-white font-bold m-0'>{title}</h3>
         <div className='flex gap-1.5 items-center'>
