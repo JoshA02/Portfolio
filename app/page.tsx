@@ -1,21 +1,10 @@
 import NewTabLink from '@/components/NewTabLink';
 import {Syne} from 'next/font/google';
 import Image from 'next/image';
-import Comment from '@/components/Comment';
 import VariableText from '@/components/VariableText';
 import Link from 'next/link';
 import Project from '@/components/Project';
-
-const syne = Syne({subsets: ['latin']});
-
-function SectionHeader({title, subtitle, className}: {title: string, subtitle: string, className?: string}) {
-  return (
-    <h1 className={'text-white font-black ' + className}>
-      {title}<span className={'text-primary font-bolder ' + syne.className}>;</span>
-      <Comment message={subtitle}/>
-    </h1>
-  );
-}
+import SectionHeader from '@/components/SectionHeader';
 
 
 function AboutMe() {
