@@ -1,7 +1,7 @@
+import FavouriteProjects from '@/components/FavouriteProjects';
+
 export default function Projects() {
   return (
-    <div>
-      <h1>Projects</h1>
-    </div>
+    <FavouriteProjects/>
   );
 }
