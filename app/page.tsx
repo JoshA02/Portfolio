@@ -48,7 +48,7 @@ function EducationItem({title, institution, startDate, endDate, imgSrc, uniHref,
         <div className='flex items-center gap-4 mb-1'>
           <h3 className='text-white font-bold m-0'>{title}</h3>
           <div className='flex items-center gap-1'>
-            <div className={'rounded-full w-3 aspect-square' + (complete ? ' bg-green-600' : ' bg-primary')}/>
+            <div className={'rounded-full w-3 aspect-square animate-pulse' + (complete ? ' bg-green-600' : ' bg-primary')}/>
             <span className='text-xs text-gray-300'>{complete ? 'complete' : 'ongoing'}</span>
           </div>
         </div>
