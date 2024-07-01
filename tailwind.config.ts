@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       animation: {
         'fade': "fade 1s ease-in-out forwards",
+        'float': 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fade: {
@@ -38,6 +39,9 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      scale: {
+        '250': '2.5',
       },
     },
   },
