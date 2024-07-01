@@ -2,9 +2,9 @@ import React from 'react'
 import Project from './Project'
 import SectionHeader from './SectionHeader'
 
-export default function FavouriteProjects() {
+export default function FavouriteProjects({className}: {className?: string}) {
   return (
-    <div>
+    <div className={className}>
       <SectionHeader className='sm:hidden' title='favProjects' subtitle='made with care'/>
       <SectionHeader className='hidden sm:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
 
