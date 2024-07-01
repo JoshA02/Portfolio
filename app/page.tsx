@@ -82,8 +82,8 @@ function FavouriteProjects() {
       <SectionHeader className='hidden sm:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
 
       <div className='flex flex-wrap gap-6 max-w-screen-lg'>
-        <Project title='Evently' coverImage='/project-images/evently-admin.png' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']} description='An events-browsing platform built using ASP.NET Core Razor Pages, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
-        <Project title='Cinema Showtimes' coverImage='/project-images/cinema-schedule.jpg' miniImages={['/typescript.svg', '/expressjs.svg', '/react.svg', '/docker.svg']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
+        <Project title='Evently' link='https://github.com/JoshA02/Evently' coverImage='/project-images/evently-admin.png' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']} description='An events-browsing platform built using ASP.NET Core Razor Pages, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
+        <Project title='Cinema Showtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='/project-images/cinema-schedule.jpg' miniImages={['/typescript.svg', '/expressjs.svg', '/react.svg', '/docker.svg']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
       </div>
     </div>
   );
