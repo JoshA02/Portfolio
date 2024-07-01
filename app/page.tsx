@@ -4,7 +4,6 @@ import VariableText from '@/components/VariableText';
 import Link from 'next/link';
 import Project from '@/components/Project';
 import SectionHeader from '@/components/SectionHeader';
-import FavouriteProjects from '@/components/FavouriteProjects';
 
 
 function AboutMe() {
@@ -59,6 +58,21 @@ function Education() {
       <div className='gap-2 flex flex-col'>
         <EducationItem uniHref='https://nau.edu' imgSrc='/nau_light.svg' title='Study Exchange - Computer Science' institution='Northern Arizona University - Flagstaff, AZ, USA' startDate={new Date(2024, 8, 1)} endDate={new Date(2025, 5, 1)}/>
         <EducationItem uniHref='https://ntu.ac.uk' imgSrc='/ntu.svg' title='BSc (Hons) Software Engineering' institution='Nottingham Trent University - Nottingham, UK' startDate={new Date(2022, 9, 1)} endDate={new Date(2026, 6, 1)}/>
+      </div>
+    </div>
+  );
+}
+
+function FavouriteProjects() {
+  return (
+    <div>
+      <SectionHeader className='sm:hidden' title='favProjects' subtitle='made with care'/>
+      <SectionHeader className='hidden sm:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
+
+      <div className='flex flex-wrap gap-6 max-w-screen-lg'>
+        <Project title='Evently' link='https://github.com/JoshA02/Evently' coverImage='/project-images/evently-admin.png' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']} description='An events-browsing platform built using ASP.NET Core Razor Pages, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
+        <Project title='Portfolio' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='/project-images/portfolio-home.png' miniImages={['/nextjs.svg', '/react.svg', '/tailwind.svg', '/typescript.svg', '/expressjs.svg', '/docker.svg']} description="Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod."/>
+        <Project title='Cinema Showtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='/project-images/cinema-schedule.jpg' miniImages={['/typescript.svg', '/expressjs.svg', '/react.svg', '/docker.svg']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
       </div>
     </div>
   );
