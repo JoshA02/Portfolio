@@ -9,7 +9,7 @@ import {Icon} from '@mui/material';
 
 export default function TopbarLink({item}: {item: NavigationItem}) {
   return (
-    <Link key={item.href} href={item.href} className={'link ' + (useCurrentPath(item.href) ? 'active' : '')}>
+    <Link key={item.href} href={item.href} className={'link flex-1 md:flex-initial border border-white' + (useCurrentPath(item.href) ? 'active' : '')}>
       <span className='hidden md:inline'>{item.name}</span>
       <span className='inline md:hidden'><Icon>{item.icon}</Icon></span>
     </Link>

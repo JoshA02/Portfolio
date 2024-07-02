@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="en" className='text-xs sm:text-base'>
+    <html lang="en">
       <body className={inter.className}>
         <Canvas/>
         <Topbar/>
