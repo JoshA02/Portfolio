@@ -18,7 +18,7 @@ export default function Project({title, miniImages, description, coverImage, lin
       
       {/* Project Cover Image */}
       {coverImage && 
-      <div className={'absolute w-full h-full left-0 top-0 transition-opacity group border border-white '}>
+      <div className={'absolute w-full h-full left-0 top-0 transition-opacity group '}>
         <div className={'absolute opacity-20 transition-all ' + (fullWidth ? 'animate-float hidden md:inline group-hover:translate-y-2 right-20 group-hover:opacity-40' : 'group-hover:opacity-25 group-hover:rotate-1 scale-150')}>
           <Image src={coverImage} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 h-52 w-auto rotate-6' : 'w-full')}/>
         </div>
