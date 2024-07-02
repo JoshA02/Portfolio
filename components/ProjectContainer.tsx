@@ -1,5 +1,4 @@
 import React from 'react'
-import SectionHeader from './SectionHeader';
 
 export default function ProjectContainer({children, type='normal'}: {children: React.ReactNode, type?: 'carrossel' | 'normal' | 'auto'}) {
   return (

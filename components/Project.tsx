@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link';
@@ -14,7 +16,9 @@ interface ProjectProps {
 
 export default function Project({title, miniImages, description, coverImage, link, linkType='github', fullWidth}: ProjectProps) {
   return (
-    <div className={'bg-container rounded-lg p-2 relative overflow-hidden animate-fade group ' + (fullWidth ? 'w-full h-52 bg-opacity-30' : 'max-w-80 aspect-video')}>
+    <div onClick={() => {
+      if (link) window.open(link, '_blank');
+    }} className={'bg-container rounded-lg p-2 relative overflow-hidden animate-fade group ' + (fullWidth ? 'w-full h-52 bg-opacity-30' : 'max-w-80 aspect-video') + (link ? ' cursor-pointer' : '')}>
       
       {/* Project Cover Image */}
       {coverImage && 
@@ -45,7 +49,7 @@ export default function Project({title, miniImages, description, coverImage, lin
       {/* Project Link */}
       {link && <Link target='_blank' href={link} className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 group-hover:bg-opacity-50 hover:bg-black transition-colors flex items-center justify-center min-w-24'>
         {linkType == 'github' && <Image src='/github.png' alt={linkType} width={512} height={512} className='w-4 h-4 mr-1'/>}
-        <span>{linkType == 'github' ? 'Clone' : 'Visit'}</span>
+        <span>{linkType == 'github' ? 'Code' : 'Visit'}</span>
       </Link>}
     </div>
   );
