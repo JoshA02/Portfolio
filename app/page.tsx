@@ -10,7 +10,7 @@ function AboutMe() {
   return (
     // <div className='flex flex-row mb-16 bg-container bg-opacity-20 pr-4 rounded-md'>
     <div className='flex flex-row mb-16'>
-      <Image priority src="/profile.svg" alt="An avatar of me" width={0} height={0} className='w-max mr-4' />
+      <Image priority src="/profile.png" width={1024} height={1024} alt="An avatar of me" className='h-32 lg:h-36 w-auto mr-4' />
       <div>
         <Image src="/logo.svg" className='h-8 w-auto mb-2 mt-2' width={0} height={0} alt='logo' />
         <VariableText name='intro' type='string' value={(<span>
@@ -74,7 +74,7 @@ function FavouriteProjects() {
         <div className='flex flex-nowrap w-max lg:w-auto lg:flex-wrap gap-6 max-w-screen-lg'>
           <Project title='Evently' link='https://github.com/JoshA02/Evently' coverImage='/project-images/evently-admin.png' miniImages={['/project-tools/typescript.png', '/project-tools/aspnet.png', '/project-tools/cs.png', '/project-tools/cshtml.png']} description='An events-browsing platform built using ASP.NET Core Razor Pages, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
           <Project title='Portfolio' link='https://github.com/JoshA02/Portfolio' coverImage='/project-images/portfolio-home.png' miniImages={['/project-tools/nextjs.png', '/project-tools/react.png', '/project-tools/tailwind.png', '/project-tools/typescript.png', '/project-tools/expressjs.png', '/project-tools/docker.png']} description="Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod."/>
-          <Project title='Cinema Showtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='/project-images/cinema-schedule.jpg' miniImages={['/project-tools/typescript.png', '/project-tools/expressjs.png', '/project-tools/react.png', '/project-tools/docker.png']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
+          <Project title='CinemaShowtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='/project-images/cinema-schedule.jpg' miniImages={['/project-tools/typescript.png', '/project-tools/expressjs.png', '/project-tools/react.png', '/project-tools/docker.png']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
         </div>
       </div>
     </div>
