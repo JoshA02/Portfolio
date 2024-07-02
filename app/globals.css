@@ -26,7 +26,12 @@ body {
   background-color: var(--background);
 }
 main {
-  margin: 1rem;
+  margin: 2rem;
+}
+@media screen and (min-width: 768px) {
+  main {
+    margin: 4rem;
+  }
 }
 p {
   font-size: 0.875rem;
@@ -61,7 +66,7 @@ input, textarea {
   border: 1px solid var(--input-outline);
   border-radius: 0.25rem;
   margin-bottom: 1rem;
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px */
 }
 input::placeholder, textarea::placeholder {
   color: var(--tooltip);
@@ -73,11 +78,11 @@ input:invalid:not(:placeholder-shown), textarea:invalid:not(:placeholder-shown) 
 button, .button {
   color: var(--foreground);
   text-align: center;
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-weight: 700;
   line-height: 23px; /* 164.286% */
   letter-spacing: -0.44px;
-  padding: 4px 22px;
+  padding: 0.25rem 1.375rem;
   border-radius: 7px;
   border: 1px solid var(--button-outline);
   box-shadow: var(--shadow);
