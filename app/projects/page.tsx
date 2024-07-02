@@ -4,7 +4,7 @@ import Comment from '@/components/Comment';
 
 export default function Projects() {
   return (
-    <div className='max-w-full'>
+    <main>
       <div className='mb-16'>
         <SectionHeader title='featuredProjects' subtitle='made with care'/>
 
@@ -31,6 +31,6 @@ export default function Projects() {
         <Project fullWidth title='Manhunt Plus' linkType='other' link='https://www.spigotmc.org/resources/manhunt-plus-free-1-8-1-17-1.81888/' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']} description='Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod.'/>
         <Project fullWidth title='MoneyDrops' linkType='other' link='https://www.spigotmc.org/resources/money-drops-1-8-1-18.78789/' miniImages={['/typescript.svg', '/aspnet.svg', '/cs.svg', '/cshtml.svg']} description='Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod.'/>
       </div>
-    </div>
+    </main>
   );
 }

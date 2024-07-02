@@ -15,9 +15,9 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Canvas/>
-          <Topbar/>
-          <main>{children}</main>
+        <Canvas/>
+        <Topbar/>
+        <>{children}</>
       </body>
     </html>
   );
