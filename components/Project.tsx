@@ -4,7 +4,17 @@ import Link from 'next/link';
 
 const randomRotations = ['-rotate-3', 'rotate-3', 'rotate-6', '-rotate-1', 'rotate-1'];
 
-export default function Project({title, miniImages, description, coverImage, link, fullWidth}: {title: string, miniImages: string[], description: string, coverImage?: string, link?: string, fullWidth?: boolean}) {
+interface ProjectProps {
+  title: string;
+  miniImages: string[];
+  description: string;
+  coverImage?: string;
+  link?: string;
+  linkType?: 'github' | 'other';
+  fullWidth?: boolean;
+}
+
+export default function Project({title, miniImages, description, coverImage, link, linkType='github', fullWidth}: ProjectProps) {
   return (
     <div className={'bg-container rounded-lg p-2 relative overflow-hidden animate-fade ' + (fullWidth ? 'w-full h-52 bg-opacity-30' : 'max-w-80 aspect-video')}>
       
@@ -12,11 +22,11 @@ export default function Project({title, miniImages, description, coverImage, lin
       <div className={'absolute w-full h-full opacity-20 transition-opacity ' + (fullWidth ? 'hover:opacity-40' : 'hover:opacity-25')}>
         <div className={'absolute h-full ' + (fullWidth ? 'hidden md:inline animate-float right-80' : '')}>
           {coverImage && 
-            <Image src={coverImage} alt={coverImage} width={200} height={1000}
+            <Image src={coverImage} alt={coverImage} width={1000} height={1000}
               className={'relative transition-transform '
               + (fullWidth ? (
                 (randomRotations[Math.floor(Math.random() * randomRotations.length)])
-                + ' scale-250 translate-y-32') : 'w-full scale-150 hover:rotate-1'
+                + ' h-52 w-auto scale-250 translate-y-32') : 'w-full scale-150 hover:rotate-1'
               )}
             />
           }
@@ -38,9 +48,9 @@ export default function Project({title, miniImages, description, coverImage, lin
       <p className={'mt-1 text-xs ' + (fullWidth ? 'md:w-1/2' : '')}>
         {description}
       </p>
-      {link && <Link target='_blank' href={link} className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 hover:bg-opacity-50 transition-colors flex items-center justify-center'>
-        <Image src='/github.svg' alt='github' width={0} height={0} className='w-4 h-4 mr-1'/>
-        <span>Clone</span>
+      {link && <Link target='_blank' href={link} className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 hover:bg-opacity-50 transition-colors flex items-center justify-center min-w-24'>
+        {linkType == 'github' && <Image src='/github.svg' alt={linkType} width={0} height={0} className='w-4 h-4 mr-1'/>}
+        <span>{linkType == 'github' ? 'Clone' : 'Visit'}</span>
       </Link>}
     </div>
   );
