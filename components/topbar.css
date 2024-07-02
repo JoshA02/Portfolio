@@ -5,6 +5,7 @@ nav {
   justify-content: space-between;
   margin: 1rem;
   margin-bottom: 4rem;
+  margin-top: 1.5rem;
 }
 nav .logo {
   object-fit: cover;
