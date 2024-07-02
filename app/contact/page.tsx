@@ -58,21 +58,23 @@ export default function Contact() {
   }
 
   return (
-    <form action={formAction} ref={test} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
-      <h1>Get in touch!</h1>
-      <h3 className={(statusMessage.toLowerCase() == 'response received!' || statusMessage.toLowerCase() === 'sending...') ? 'text-primary' : 'text-danger'}>{statusMessage}</h3>
+    <main className='flex justify-center'>
+      <form action={formAction} ref={test} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
+        <h1>Get in touch!</h1>
+        <h3 className={(statusMessage.toLowerCase() == 'response received!' || statusMessage.toLowerCase() === 'sending...') ? 'text-primary' : 'text-danger'}>{statusMessage}</h3>
 
-      <span className='tooltip'>email</span>
-      <input type='email' name='email' required placeholder='email@domain.com'/>
+        <span className='tooltip'>email</span>
+        <input type='email' name='email' required placeholder='email@domain.com'/>
 
-      <span className='tooltip'>message</span>
-      <div className={'flex flex-col relative mb-3' + (doShake ? ' shake' : '')}>
-        <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={maxLength} onChange={(e) => setCharCount(e.currentTarget.textLength)} onKeyDown={(e) => checkMessageLimit(e)}/>
+        <span className='tooltip'>message</span>
+        <div className={'flex flex-col relative mb-3' + (doShake ? ' shake' : '')}>
+          <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={maxLength} onChange={(e) => setCharCount(e.currentTarget.textLength)} onKeyDown={(e) => checkMessageLimit(e)}/>
 
-        {/* Char count: */}
-        <span className={'tooltip text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
-      </div>
-      <SubmitButton disabled={!formValid}/>
-    </form>
+          {/* Char count: */}
+          <span className={'tooltip text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
+        </div>
+        <SubmitButton disabled={!formValid}/>
+      </form>
+    </main>
   );
 }
