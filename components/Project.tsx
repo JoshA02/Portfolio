@@ -18,9 +18,9 @@ export default function Project({title, miniImages, description, coverImage, lin
       
       {/* Project Cover Image */}
       {coverImage && 
-      <div className={'absolute w-full h-full transition-opacity group ' + (fullWidth ? 'animate-float' : '')}>
-        <div className={'absolute h-full opacity-20 transition-all ' + (fullWidth ? 'scale-250 translate-y-32 hidden md:inline group-hover:translate-y-36 right-20 group-hover:opacity-40' : 'group-hover:opacity-25 group-hover:rotate-1 scale-150')}>
-          <Image src={coverImage} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? ' h-52 w-auto rotate-6' : 'w-full')}/>
+      <div className={'absolute w-full h-full left-0 top-0 transition-opacity group border border-white '}>
+        <div className={'absolute opacity-20 transition-all ' + (fullWidth ? 'animate-float hidden md:inline group-hover:translate-y-2 right-20 group-hover:opacity-40' : 'group-hover:opacity-25 group-hover:rotate-1 scale-150')}>
+          <Image src={coverImage} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 h-52 w-auto rotate-6' : 'w-full')}/>
         </div>
       </div>}
 
@@ -30,7 +30,7 @@ export default function Project({title, miniImages, description, coverImage, lin
         <div className='flex gap-1.5 items-center'>
           {miniImages.map((img, i) => (
             <div className='contents' key={title}>
-              <img key={title} src={img} alt={img} className='w-auto'/>
+              <Image width={512} height={512} key={title} src={img} alt={img} className='w-auto h-5'/>
               {i < miniImages.length - 1 && <span className='font-bold'>·</span>}
             </div>
           ))}
@@ -44,7 +44,7 @@ export default function Project({title, miniImages, description, coverImage, lin
 
       {/* Project Link */}
       {link && <Link target='_blank' href={link} className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 hover:bg-opacity-50 transition-colors flex items-center justify-center min-w-24'>
-        {linkType == 'github' && <Image src='/github.svg' alt={linkType} width={0} height={0} className='w-4 h-4 mr-1'/>}
+        {linkType == 'github' && <Image src='/github.png' alt={linkType} width={512} height={512} className='w-4 h-4 mr-1'/>}
         <span>{linkType == 'github' ? 'Clone' : 'Visit'}</span>
       </Link>}
     </div>
