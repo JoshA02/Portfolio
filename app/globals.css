@@ -15,11 +15,6 @@
   --danger: theme(colors.danger);
   --shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.20);
 }
-@media screen and (max-width: 768px) {
-  :root {
-    font-size: 0.9rem;
-  }
-}
 
 .bg-gradient {
   opacity: 0;
