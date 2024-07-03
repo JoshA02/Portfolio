@@ -23,8 +23,8 @@ export default function Project({title, miniImages, description, coverImage, lin
       {/* Project Cover Image */}
       {coverImage && 
       <div className={'absolute w-full h-full left-0 top-0 transition-opacity -z-10'}>
-        <div className={'absolute opacity-20 transition-all ' + (fullWidth ? 'animate-float hidden md:inline right-20 group-hover:opacity-80' : 'group-hover:opacity-35 group-hover:rotate-1 scale-150')}>
-          <Image src={coverImage} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 h-52 w-auto rotate-6 group-hover:-translate-x-3' : 'w-full')}/>
+        <div className={'absolute opacity-20 transition-all ' + (fullWidth ? 'animate-float inline right-20 group-hover:opacity-80' : 'group-hover:opacity-35 group-hover:rotate-1 scale-150')}>
+          <Image src={'/project-images/' + coverImage + (fullWidth ? '.png' : '-opaque.png')} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 h-52 w-auto rotate-6 group-hover:-translate-x-3' : 'w-full')}/>
         </div>
       </div>}
 
@@ -32,7 +32,7 @@ export default function Project({title, miniImages, description, coverImage, lin
       <div className='flex gap-3 items-center'>
         <h3 className='text-white font-bold m-0'>{title}</h3>
         <div className='flex gap-2.5 items-center'>
-          {miniImages.map((img, i) => (
+          {miniImages.map((img) => (
             <div className='contents' key={title}>
               <Image width={512} height={512} key={title} src={img} alt={img} className='w-auto h-4'/>
               {/* {i < miniImages.length - 1 && <span className='font-bold'>·</span>} */}
