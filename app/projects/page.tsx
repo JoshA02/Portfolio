@@ -34,8 +34,13 @@ export default function Projects() {
       <div className="mb-16">
         <SectionHeader title='gameDev' subtitle='games, modding, etc'/>
         <ProjectContainer>
-          <Project fullWidth title='PuzzleMP' linkType='github' coverImage='puzzlemp-main' link='https://github.com/JoshA02/PuzzleMP' miniImages={['/project-tools/typescript.png']} description='Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod.'/>
-          <Project fullWidth title='Die Rise' linkType='other' coverImage='dierise-main' link='https://steamcommunity.com/sharedfiles/filedetails/?id=1516544300' miniImages={['/project-tools/typescript.png']} description='Quisque non semper sem, eget venenatis nunc. Pellentesque aliquet ligula id feugiat accumsan. Integer congue placerat dapibus. Duis sodales iaculis urna, a varius turpis fringilla vel. Nullam tincidunt magna ac interdum bibendum. Fusce viverra ligula nec diam luctus euismod.'/>
+          <Project
+            fullWidth title='PuzzleMP' linkType='github' coverImage='puzzlemp-main' link='https://github.com/JoshA02/PuzzleMP' miniImages={['/project-tools/unreal.png', '/project-tools/cpp.png', '/project-tools/blender.png']} 
+            description='A 3D, coop puzzle game made in Unreal Engine 4 for a college project. Implements the Steam online subsystem for multiplayer and developed almost entirely in C++, with a few elements expanded upon via Blueprints.'
+          />
+          <Project
+            fullWidth title='Die Rise' linkType='other' coverImage='dierise-main' link='https://steamcommunity.com/sharedfiles/filedetails/?id=1516544300' miniImages={['/project-tools/typescript.png']}
+            description='A partial remake of the classic Black Ops 2 zombies map "Die Rise", built using the official Black Ops III Mod Tools.'/>
         </ProjectContainer>
       </div>
 
