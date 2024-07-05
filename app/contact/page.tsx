@@ -1,13 +1,15 @@
 'use client';
 
-import {useEffect, useRef, useState} from 'react';
+import {RefObject, useEffect, useRef, useState} from 'react';
 import './style.css';
 import {useFormState, useFormStatus} from 'react-dom';
 import {submitContact} from '@/actions/submitContact';
+import ReCAPTCHA from 'react-google-recaptcha';
 
-const initialFormState: {email: string, message: string} = {
+const initialFormState: {email: string, message: string, recaptchaToken: string} = {
   email: '',
-  message: ''
+  message: '',
+  recaptchaToken: ''
 };
 
 function SubmitButton({disabled}: {disabled: boolean}) {
@@ -23,14 +25,18 @@ export default function Contact() {
   const maxLength = 2500;
   const [formValid, setFormValid] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
-  const test = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string>('');
+  const recaptchaBox = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
-    if(formState?.message.toLowerCase() === 'response received!') {
+    if(!formState?.message.toLowerCase().startsWith('error')) {
       // Clear form after response received
-      test.current?.reset();
+      formRef.current?.reset();
       setCharCount(0);
     }
+    recaptchaBox.current?.reset();
+    validateForm('');
     return setStatusMessage(formState?.message || '');
   }, [formState])
   
@@ -46,6 +52,11 @@ export default function Contact() {
     setTimeout(() => setDoShake(false), 300); // Reset doShake after 1 second
   }
 
+  function validateForm(captchaToken: string) {
+    setFormValid( (formRef.current?.checkValidity() || false) && captchaToken!='');
+    setRecaptchaToken(captchaToken);
+  }
+
   // Check validity via HTML validation before submitting
   function submitForm(e: React.FormEvent<HTMLFormElement>) {
     if(!e.currentTarget.checkValidity()){
@@ -59,9 +70,9 @@ export default function Contact() {
 
   return (
     <main className='flex justify-center'>
-      <form action={formAction} ref={test} onChange={(e) => setFormValid(e.currentTarget.checkValidity())} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
+      <form action={formAction} ref={formRef} onChange={() => validateForm(recaptchaToken)} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
         <h1>Get in touch!</h1>
-        <h3 className={(statusMessage.toLowerCase() == 'response received!' || statusMessage.toLowerCase() === 'sending...') ? 'text-primary' : 'text-danger'}>{statusMessage}</h3>
+        <h3 className={(statusMessage?.toLowerCase().startsWith('error')) ? 'text-danger' : 'text-primary'}>{statusMessage}</h3>
 
         <span className='tooltip'>email</span>
         <input type='email' name='email' required placeholder='email@domain.com'/>
@@ -73,6 +84,14 @@ export default function Contact() {
           {/* Char count: */}
           <span className={'tooltip text-right absolute right-2 bottom-0' + (charCount >= maxLength ? ' urgent animate' : '')}>{charCount}/{maxLength}</span>
         </div>
+
+        <input type='hidden' required pattern='^(?!\s*$).+' name='recaptchaToken' value={recaptchaToken || ''}/>
+        <ReCAPTCHA className='mb-3' ref={recaptchaBox} theme='dark' sitekey='6LdYywgqAAAAAB53B4dT4KfDUa6etSpupFYoHfJy'
+          onExpired={() => validateForm('')}
+          onErrored={() => {validateForm('')}}
+          onChange={(token) => validateForm(token||'')}
+        />
+
         <SubmitButton disabled={!formValid}/>
       </form>
     </main>

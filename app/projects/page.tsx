@@ -39,7 +39,7 @@ export default function Projects() {
             description='A 3D, coop puzzle game made in Unreal Engine 4 for a college project. Implements the Steam online subsystem for multiplayer and developed almost entirely in C++, with a few elements expanded upon via Blueprints.'
           />
           <Project
-            fullWidth title='Die Rise' linkType='other' coverImage='dierise-main' link='https://steamcommunity.com/sharedfiles/filedetails/?id=1516544300' miniImages={['/project-tools/typescript.png']}
+            fullWidth title='Die Rise' linkType='other' coverImage='dierise-main' link='https://steamcommunity.com/sharedfiles/filedetails/?id=1516544300' miniImages={['/project-tools/bo3.png']}
             description='A partial remake of the classic Black Ops 2 zombies map "Die Rise", built using the official Black Ops III Mod Tools.'/>
         </ProjectContainer>
       </div>
