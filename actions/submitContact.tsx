@@ -9,9 +9,10 @@
 export async function submitContact(_prevState: any, formData: FormData) {
   console.log('submitContact', formData.get('email'), formData.get('message'), 'recaptchaToken:', formData.get('recaptchaToken'));
   
-  // Validate form
-  if (!formData.get('email') || !formData.get('message'))
+  // Validate form. This shouldn't be necessary, but just in case...
+  if (!formData.get('email') || !formData.get('message')) {
     return {message: 'Error: Please fill out all fields'};
+  }
 
   // validate recaptchaToken
   const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -20,9 +21,13 @@ export async function submitContact(_prevState: any, formData: FormData) {
     body: `secret=${process.env.RECAPTCHA_SECRET}&response=${formData.get('recaptchaToken')}`
   });
 
-  const recaptchaResponse = await response.json();
-  if (!recaptchaResponse?.success) {
-    return {message: 'Error: Recaptcha failed'};
+  try {
+    const recaptchaResponse = await response.json();
+    if (!recaptchaResponse?.success) {
+      throw new Error();
+    }
+    return {message: 'Response received!'};
+  } catch (e) {
+    return {message: 'Error: Recaptcha failed. Please try again.'};
   }
-  return {message: 'Response received!'};
 }

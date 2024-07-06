@@ -1,6 +1,6 @@
 'use client';
 
-import {RefObject, useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import './style.css';
 import {useFormState, useFormStatus} from 'react-dom';
 import {submitContact} from '@/actions/submitContact';
@@ -51,8 +51,7 @@ export default function Contact() {
     // Submit form if token has been generated.
     // This will trigger the submitForm function again, but this time the token will be present...
     // Therefore, the server action will be called.
-    console.log('Token generated. Submitting form...');
-    return formRef.current?.submit();
+    return submitForm();
   }, [recaptchaToken])
   
 
@@ -68,30 +67,28 @@ export default function Contact() {
   }
 
   // Check validity via HTML validation before submitting
-  function submitForm(e: React.FormEvent<HTMLFormElement>) {
-    if(!e.currentTarget.checkValidity()){
+  function submitForm(e?: React.FormEvent<HTMLFormElement>) {
+    e?.preventDefault();
+    if(!formRef.current?.checkValidity()){
       alert('Please fill out all fields correctly');
-      return e.preventDefault(); // Prevent form submission
-    }
-
-
-    // Hasn't been generated yet. Prevent form submission and generate a token.
-    if(recaptchaToken === ''){
-      console.log('No token generated yet. Executing reCaptcha to generate token...');
-      setStatusMessage('Sending...');
-      e.preventDefault(); // Prevent form submission
-      recaptchaRef.current?.execute();
       return;
     }
 
+    // Hasn't been generated yet. Prevent form submission and generate a token.
+    if(recaptchaToken === ''){
+      setStatusMessage('Sending...');
+      return recaptchaRef.current?.execute();
+    }
+
     // Token has been generated. Submit form.
-    console.log('Token already generated. Submitting form...');
+    const formData = new FormData(formRef.current);
+    return formAction(formData);
   }
   
 
   return (
     <main className='flex justify-center'>
-      <form action={formAction} ref={formRef} onChange={() => setFormValid(formRef.current?.checkValidity() || false)} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
+      <form ref={formRef} onChange={() => setFormValid(formRef.current?.checkValidity() || false)} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
         <h1>Get in touch!</h1>
         <h3 className={(statusMessage?.toLowerCase().startsWith('error')) ? 'text-danger' : 'text-primary'}>{statusMessage}</h3>
 
@@ -105,7 +102,7 @@ export default function Contact() {
         </div>
         <SubmitButton disabled={!formValid}/>
         <input type='hidden' required pattern='^(?!\s*$).+' name='recaptchaToken' value={recaptchaToken || ''}/>
-        <ReCAPTCHA className='mt-3' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LcObwkqAAAAACtkhs6JLNxaTyHryI8loa4_mzaQ'
+        <ReCAPTCHA className='mt-3' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LdXdwkqAAAAAAvn-ZZSakVeIZBQlru64YdVLIjT'
           onChange={(token) => setRecaptchaToken(token || '')}
           onErrored={() => setStatusMessage('Error: Recaptcha failed. Please try again.')}
         />
