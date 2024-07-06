@@ -24,6 +24,12 @@ export async function submitContact(_prevState: any, formData: FormData) {
     return {message: 'Error: Please fill out all fields'};
   }
 
+  const messageLength = formData.get('message')?.toString().length || 0;
+
+  if(messageLength < 30 || messageLength > 2500) {
+    return {message: 'Error: Message must be between 50 and 2500 characters'};
+  }
+
   // validate recaptchaToken
   const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
     method: 'POST',
