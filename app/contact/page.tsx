@@ -16,7 +16,7 @@ const initialFormState: {email: string, message: string, recaptchaToken: string}
 
 function SubmitButton({disabled}: {disabled: boolean}) {
   const {pending} = useFormStatus();
-  return <button disabled={pending || disabled} className='bg-container absolute'>Send</button>
+  return <button disabled={pending || disabled} className='bg-container min-[400px]:absolute'>Send</button>
 }
 
 export default function Contact() {
@@ -104,10 +104,10 @@ export default function Contact() {
           <textarea required name='message' placeholder='Your message here' className='min-h-80 mb-0 resize-y max-h-full' maxLength={MAX_MSG_LENGTH} onChange={(e) => setCharCount(e.currentTarget.textLength)} onKeyDown={(e) => checkMessageLimit(e)}/>
           <span className={'tooltip text-right absolute right-2 bottom-0' + (charCount >= MAX_MSG_LENGTH ? ' urgent animate' : '')}>{charCount}/{MAX_MSG_LENGTH}</span>
         </div>
-        <div className='flex flex-row relative'>
+        <div className='flex flex-col min-[400px]:flex-row relative'>
           <SubmitButton disabled={!formValid}/>
           <input type='hidden' required pattern='^(?!\s*$).+' name='recaptchaToken' value={recaptchaToken || ''}/>
-          <ReCAPTCHA className='absolute right-0' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LdXdwkqAAAAAAvn-ZZSakVeIZBQlru64YdVLIjT'
+          <ReCAPTCHA className='mt-3 min-[400px]:mt-0 min-[400px]:absolute min-[400px]:right-0' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LdXdwkqAAAAAAvn-ZZSakVeIZBQlru64YdVLIjT'
             onChange={(token) => setRecaptchaToken(token || '')}
             onErrored={() => setStatusMessage('Error: Recaptcha failed. Please try again.')}
           />
