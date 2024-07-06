@@ -51,9 +51,9 @@ export async function submitContact(_prevState: any, formData: FormData) {
       TextBody: `Message received from ${formData.get('email')}\n\n${formData.get('message')}`,
       MessageStream: process.env.POSTMARK_MESSAGE_STREAM
     });
-    return {message: 'Response received, thanks for reaching out!\nI\'ll get back to you as soon as I can.'}; // Success
+    return {message: 'Response received, thanks for reaching out! I\'ll get back to you as soon as I can.'}; // Success
   } catch (e) {
     console.error('Error sending email:', e);
-    return {message: `Error: Failed to send email. Please try again.\nIf this persists, please contact me directly at ${process.env.PERSONAL_EMAIL}`};
+    return {message: `Error: Failed to send email; Please try again. If this persists, please contact me directly at ${process.env.PERSONAL_EMAIL}`};
   }
 }
