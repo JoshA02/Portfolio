@@ -35,7 +35,11 @@ export default function Contact() {
   // When the form receives a response
   useEffect(() => {
     setStatusMessage(formState?.message || '');
-    recaptchaRef.current?.reset();
+    
+    recaptchaRef.current?.reset(); // Reset recaptcha after submission
+    setRecaptchaToken(''); // Reset recaptcha token after submission
+    setFormValid(formRef.current?.checkValidity() || false); // Reset form validity after submission
+
     if(formState?.message.toLowerCase().startsWith('error')){
       setTimeout(() => setStatusMessage(''), 3000); // Clear error message after 3 seconds
       return;
@@ -106,7 +110,6 @@ export default function Contact() {
         <ReCAPTCHA className='mt-3' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LdXdwkqAAAAAAvn-ZZSakVeIZBQlru64YdVLIjT'
           onChange={(token) => setRecaptchaToken(token || '')}
           onErrored={() => setStatusMessage('Error: Recaptcha failed. Please try again.')}
-          onReset={() => setRecaptchaToken('')}
         />
       </form>
     </main>

@@ -1,7 +1,7 @@
 'use server';
 
 import assert from 'assert';
-import Postmark, {AccountClient, ServerClient} from 'postmark';
+import {ServerClient} from 'postmark';
 
 /**
  * Server action; utilised by the client-side form submission in app/contact/page.tsx
@@ -18,15 +18,11 @@ export async function submitContact(_prevState: any, formData: FormData) {
   assert(process.env.POSTMARK_API_KEY, 'POSTMARK_API_KEY must be set in .env');
   assert(process.env.PERSONAL_EMAIL, 'PERSONAL_EMAIL must be set in .env');
   assert(process.env.POSTMARK_MESSAGE_STREAM, 'POSTMARK_MESSAGE_STREAM must be set in .env');
-
-  // console.log('submitContact', formData.get('email'), formData.get('message'), 'recaptchaToken:', formData.get('recaptchaToken'));
   
   // Validate form. This shouldn't be necessary, but just in case...
   if (!formData.get('email') || !formData.get('message') || !formData.get('recaptchaToken')) {
     return {message: 'Error: Please fill out all fields'};
   }
-
-  console.log('Attempting to validate recaptcha...');
 
   // validate recaptchaToken
   const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -44,8 +40,7 @@ export async function submitContact(_prevState: any, formData: FormData) {
     return {message: 'Error: Recaptcha failed. Please try again.'};
   }
 
-  console.log('Attempting to send email...');
-
+  // Send email
   try{
     const client = new ServerClient(process.env.POSTMARK_API_KEY as string);
     await client.sendEmail({
@@ -56,7 +51,7 @@ export async function submitContact(_prevState: any, formData: FormData) {
       TextBody: `Message received from ${formData.get('email')}\n\n${formData.get('message')}`,
       MessageStream: process.env.POSTMARK_MESSAGE_STREAM
     });
-    return {message: 'Response received!'}; // Success
+    return {message: 'Response received, thanks for reaching out!\nI\'ll get back to you as soon as I can.'}; // Success
   } catch (e) {
     console.error('Error sending email:', e);
     return {message: `Error: Failed to send email. Please try again.\nIf this persists, please contact me directly at ${process.env.PERSONAL_EMAIL}`};
