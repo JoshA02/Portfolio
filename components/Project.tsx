@@ -47,10 +47,10 @@ export default function Project({title, miniImages, description, coverImage, lin
       </p>
 
       {/* Project Link */}
-      {link && <Link target='_blank' href={link} className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 group-hover:bg-opacity-50 hover:bg-black transition-colors flex items-center justify-center min-w-24'>
+      {link && <div className='button absolute bottom-2 right-2 bg-container bg-opacity-0 text-white rounded-md p-1.5 group-hover:bg-opacity-50 hover:bg-black transition-colors flex items-center justify-center min-w-24'>
         {linkType == 'github' && <Image src='/github.png' alt={linkType} width={512} height={512} className='w-4 h-4 mr-1'/>}
         <span>{linkType == 'github' ? 'Code' : 'Visit'}</span>
-      </Link>}
+      </div>}
     </div>
   );
 }
