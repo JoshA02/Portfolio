@@ -107,7 +107,7 @@ export default function Contact() {
         <div className='flex flex-col min-[400px]:flex-row relative'>
           <SubmitButton disabled={!formValid}/>
           <input type='hidden' required pattern='^(?!\s*$).+' name='recaptchaToken' value={recaptchaToken || ''}/>
-          <ReCAPTCHA className='mt-3 min-[400px]:mt-0 min-[400px]:absolute min-[400px]:right-0' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LdXdwkqAAAAAAvn-ZZSakVeIZBQlru64YdVLIjT'
+          <ReCAPTCHA className='mt-3 min-[400px]:mt-0 min-[400px]:absolute min-[400px]:right-0' badge='inline' size='invisible' ref={recaptchaRef} theme='dark' sitekey='6LcZggkqAAAAANPjo6nn5Q5qdnpgKcHDixIt30EC'
             onChange={(token) => setRecaptchaToken(token || '')}
             onErrored={() => setStatusMessage('Error: Recaptcha failed. Please try again.')}
           />
