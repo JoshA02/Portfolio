@@ -70,7 +70,7 @@ export default function Projects() {
             description='Submitted for a first-year university assignment, SuecaScorer is a command-line application that scores and evaluates matches of the Portuguese card game &apos;Sueca&apos;. Built using Python, with a focus on object-oriented programming and algorithmic design, implementing scoring algorithms based on traditional rules.'
           />
           <Project
-            fullWidth title='Gym POS System' coverImage='gym' miniImages={['/project-tools/cpp.png', , '/project-tools/xd.png']}
+            fullWidth title='Gym POS System' coverImage='gym' miniImages={['/project-tools/cpp.png', '/project-tools/xd.png']}
             description='A gym Point of Sale system developed for a first-year university assignment using C++ and WinForms. The system is designed to manage gym hours and handle transactions for gym services, implementing access-levels to restrict higher-level actions from regular staff members. Developed in C++ using object-oriented programming principles and file I/O for data storage.'
           />
         </ProjectContainer>
