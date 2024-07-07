@@ -35,7 +35,6 @@ export default function Project({title, miniImages, description, coverImage, lin
           {miniImages.map((img) => (
             <div className='contents' key={title}>
               <Image width={512} height={512} key={title} src={img} alt={img} className='w-auto h-4'/>
-              {/* {i < miniImages.length - 1 && <span className='font-bold'>·</span>} */}
             </div>
           ))}
         </div>

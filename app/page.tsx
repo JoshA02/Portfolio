@@ -9,7 +9,6 @@ import ProjectContainer from '@/components/ProjectContainer';
 
 function AboutMe() {
   return (
-    // <div className='flex flex-row mb-16 bg-container bg-opacity-20 pr-4 rounded-md'>
     <div className='flex flex-row mb-16'>
       <Image priority src="/profile.png" width={1024} height={1024} alt="An avatar of me" className='hidden sm:inline h-32 lg:h-36 w-auto mr-4' />
       <div>
@@ -86,12 +85,12 @@ function FavouriteProjects() {
       <SectionHeader className='md:hidden' title='favProjects' subtitle='made with care'/>
       <SectionHeader className='hidden md:block' title='favProjects' subtitle='made with care ❤️. check out www.joshaaron.me/projects for a full list'/>
       <ProjectContainer type='auto'>
-        <Project title='Evently' link='https://github.com/JoshA02/Evently' coverImage='evently-admin' miniImages={['/project-tools/typescript.png', '/project-tools/aspnet.png', '/project-tools/cs.png', '/project-tools/cshtml.png']} description='An events-browsing platform built using ASP.NET Core Razor Pages, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
+        <Project title='Evently' link='https://github.com/JoshA02/Evently' coverImage='evently-admin' miniImages={['/project-tools/typescript.png', '/project-tools/aspnet.png', '/project-tools/cs.png', '/project-tools/cshtml.png', '/project-tools/xd.png']} description='An events-browsing platform built using ASP.NET Core Razor Pages with EF Core for database interactions, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
         <Project
-          title='Portfolio' link='https://github.com/JoshA02/Portfolio' coverImage='portfolio-home' miniImages={['/project-tools/nextjs.png', '/project-tools/react.png', '/project-tools/tailwind.png', '/project-tools/typescript.png', '/project-tools/docker.png']}
+          title='Portfolio' link='https://github.com/JoshA02/Portfolio' coverImage='portfolio-home' miniImages={['/project-tools/nextjs.png', '/project-tools/react.png', '/project-tools/tailwind.png', '/project-tools/typescript.png', '/project-tools/docker.png', '/project-tools/figma.png']}
           description="Built using Next.js, React, Tailwind CSS, and TypeScript. The site is fully responsive and includes a 'contact me' form, protected by Google's reCAPTCHA v2, with messages forwarded to myself with Postmark. Hosted on my own server, running in a Docker container and reverse-proxied via Cloudflare Tunnels."
         />
-        <Project title='CinemaShowtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='cinema-schedule' miniImages={['/project-tools/typescript.png', '/project-tools/expressjs.png', '/project-tools/react.png', '/project-tools/docker.png']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
+        <Project title='CinemaShowtimes' link='https://github.com/JoshA02/CinemaShowtimes' coverImage='cinema-schedule' miniImages={['/project-tools/typescript.png', '/project-tools/expressjs.png', '/project-tools/react.png', '/project-tools/docker.png', '/project-tools/figma.png']} description="Developed for educational purposes to demonstrate skills in React, Docker, ExpressJS, and API integration. It provides an example of how to access and display showtimes and movie titles from a cinema's API."/>
       </ProjectContainer>
     </div>
   );
