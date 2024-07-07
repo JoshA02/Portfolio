@@ -92,8 +92,9 @@ export default function Contact() {
 
   return (
     <main className='flex justify-center'>
-      <form ref={formRef} onChange={() => setFormValid(formRef.current?.checkValidity() || false)} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 py-7 rounded-lg md:w-3/4 lg:w-1/2 xl:w-1/3 w-full flex flex-col'>
+      <form ref={formRef} onChange={() => setFormValid(formRef.current?.checkValidity() || false)} onSubmit={(e) => submitForm(e)} noValidate className='bg-container bg-opacity-30 px-4 pt-7 pb-16 rounded-lg md:w-3/4 xl:w-3/6 w-full flex flex-col'>
         <h1>Get in touch!</h1>
+        <h3>Don't like forms? You can reach me at <a className='font-bold' target='_blank' href='mailto:hello@joshaaron.me'>hello@joshaaron.me</a></h3>
         <h3 className={(statusMessage?.toLowerCase().startsWith('error')) ? 'text-danger' : 'text-primary'}>{statusMessage}</h3>
 
         <span className='tooltip'>email</span>
