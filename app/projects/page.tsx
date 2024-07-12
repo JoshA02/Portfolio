@@ -66,6 +66,10 @@ export default function Projects() {
         <SectionHeader title='uniWork' subtitle='a variety of stuff done for uni'/>
         <ProjectContainer>
           <Project
+            fullWidth title='Weather App' linkType='github' link='https://github.com/JoshA02/WeatherApp' coverImage='weather' miniImages={['/project-tools/cpp.png', '/project-tools/boost.png']}
+            description='Developed in C++ using object-oriented programming principles, using curl for web requests and the Boost testing library for unit testing. Fetches weather data from a public API and displays it to the user (historic, current, and forecasted data), allowing them to search for weather data by city name. Users can also save favourite cities for quick access and choose to display data in either metric or imperial units.'
+          />
+          <Project
             fullWidth title='Sueca Scorer' linkType='github' coverImage='sueca-code' link='https://github.com/JoshA02/SuecaScorer' miniImages={['/project-tools/python.png']}
             description='Submitted for a first-year university assignment, SuecaScorer is a command-line application that scores and evaluates matches of the Portuguese card game &apos;Sueca&apos;. Built using Python, with a focus on object-oriented programming and algorithmic design, implementing scoring algorithms based on traditional rules.'
           />
