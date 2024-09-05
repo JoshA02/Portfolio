@@ -26,6 +26,7 @@ export default function Projects() {
       <div className="mb-16">
         <SectionHeader title='web' subtitle='full-stack'/>
         <ProjectContainer>
+          <Project fullWidth title='RandFlix' link='https://github.com/JoshA02/ShuffleFlix' coverImage='shuffleflix' miniImages={['/project-tools/typescript.png']} description='A Chrome extension that allows users to play a random episode from a chosen show within Netflix. Built in TypeScript, using Chrome manifest v3.'/>
           <Project fullWidth title='Evently' link='https://github.com/JoshA02/Evently' coverImage='evently-admin' miniImages={['/project-tools/typescript.png', '/project-tools/aspnet.png', '/project-tools/cs.png', '/project-tools/cshtml.png', '/project-tools/xd.png']} description='An events-browsing platform built using ASP.NET Core Razor Pages with EF Core for database interactions, allowing users to host, discover and register for upcoming events. User roles are also implemented, giving admins additional control over other users (password resets, credential changes, etc).'/>
           <Project
             fullWidth title='Portfolio' link='https://github.com/JoshA02/Portfolio' coverImage='portfolio-home' miniImages={['/project-tools/nextjs.png', '/project-tools/react.png', '/project-tools/tailwind.png', '/project-tools/typescript.png', '/project-tools/docker.png', '/project-tools/figma.png']}
