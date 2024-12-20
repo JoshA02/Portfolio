@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Loading() {
   return (
     <main className='flex justify-center mb-12'>
-      <Image src='/spinner.gif' alt='loading' width={100} height={100} />
+      {/* <Image src='/spinner.gif' alt='loading' width={100} height={100} /> */}
     </main>
   );
 }
