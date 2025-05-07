@@ -74,7 +74,7 @@ function Education() {
       <div className='gap-2 flex flex-col'>
         <EducationItem uniHref='https://ntu.ac.uk' imgSrc='/unis/ntu.png' title='BSc (Hons) Software Engineering' institution='Nottingham Trent University' location='Nottingham - UK' startDate={new Date(2022, 9, 1)} endDate={new Date(2026, 6, 1)}/>
         <EducationItem uniHref='https://nau.edu' imgSrc='/unis/nau.png' title='International Study Diploma in Professional Studies' institution='Northern Arizona University' location='Flagstaff, AZ - US' startDate={new Date(2024, 8, 1)} endDate={new Date(2025, 5, 1)}/>
-        <EducationItem uniHref='https://www.nottinghamcollege.ac.uk' imgSrc='/unis/nc.png' title='UAL Level 3 Ext. Diploma in Creative Media Prod. and Tech. - Games Development' institution='Nottingham College' location='Nottingham - UK' startDate={new Date(2020, 9, 1)} endDate={new Date(2022, 6, 1)}/>
+        <EducationItem uniHref='https://www.nottinghamcollege.ac.uk' imgSrc='/unis/nc.png' title='UAL Level 3 Ext. Diploma - Games Development' institution='Nottingham College' location='Nottingham - UK' startDate={new Date(2020, 9, 1)} endDate={new Date(2022, 6, 1)}/>
       </div>
     </div>
   );
