@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link';
 
 interface ProjectProps {
   title: string;
@@ -24,7 +23,7 @@ export default function Project({title, miniImages, description, coverImage, lin
       {coverImage && 
       <div className={'absolute w-full h-full left-0 top-0 transition-opacity -z-10'}>
         <div className={'absolute opacity-20 transition-all ' + (fullWidth ? 'animate-float inline right-20 group-hover:opacity-80' : 'group-hover:opacity-35 group-hover:rotate-1 scale-150')}>
-          <Image src={'/project-images/' + coverImage + (fullWidth ? '.png' : '-opaque.png')} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 h-52 w-auto rotate-6 group-hover:-translate-x-3' : 'w-full')}/>
+          <Image src={'/project-images/' + coverImage + (fullWidth ? '.png' : '-opaque.png')} alt={coverImage} width={1000} height={1000} className={'relative transition-transform ' + (fullWidth ? 'scale-250 max-h-52 w-auto rotate-6 group-hover:-translate-x-3' : 'w-full')}/>
         </div>
       </div>}
 
