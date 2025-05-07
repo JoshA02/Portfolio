@@ -35,7 +35,7 @@ function EducationItem({title, institution, location, startDate, endDate, imgSrc
   return (
     <div className='flex items-center'>
       <Link target='_blank' className={'w-20 sm:w-32 flex items-center justify-center' + (uniHref ? ' hover:scale-110 transition-transform' : '')} href={uniHref || ''}>
-        <Image src={imgSrc} alt="Nottingham Trent University logo" width={1024} height={1024} className={'w-max' + (glow ? ' drop-shadow-lg-white' : '')}/>
+        <Image src={imgSrc} alt="Nottingham Trent University logo" width={1024} height={1024} className={'w-full min-w-20' + (glow ? ' drop-shadow-lg-white' : '')}/>
       </Link>
       <div className='pl-2'>
         <div className='flex items-center gap-4 mb-1'>
