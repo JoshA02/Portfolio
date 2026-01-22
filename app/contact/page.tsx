@@ -5,7 +5,6 @@ import './style.css';
 import { useFormStatus } from 'react-dom';
 import {submitContact} from '@/actions/submitContact';
 import ReCAPTCHA from 'react-google-recaptcha';
-import type { Metadata } from 'next';
 
 const MAX_MSG_LENGTH = 2500;
 
@@ -13,11 +12,6 @@ const initialFormState: {email: string, message: string, recaptchaToken: string}
   email: '',
   message: '',
   recaptchaToken: ''
-};
-
-export const metadata: Metadata = {
-  title: "Josh Aaron | Contact",
-  description: "Get in touch with Josh Aaron, a junior full-stack developer studying Software Engineering at Nottingham Trent University.",
 };
 
 function SubmitButton({disabled}: {disabled: boolean}) {
