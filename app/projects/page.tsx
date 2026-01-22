@@ -1,6 +1,12 @@
 import Project from '@/components/Project';
 import SectionHeader from '@/components/SectionHeader';
 import ProjectContainer from '@/components/ProjectContainer';
+import {Metadata} from 'next';
+
+export const metadata: Metadata = {
+  title: "Josh Aaron | Projects",
+  description: "Explore projects by Josh Aaron, a junior full-stack developer studying Software Engineering at Nottingham Trent University.",
+};
 
 export default function Projects() {
   return (

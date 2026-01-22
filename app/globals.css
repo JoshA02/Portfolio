@@ -16,9 +16,28 @@
   --shadow: 0px 0px 4px 0px rgba(255, 255, 255, 0.20);
 }
 
-.bg-gradient {
-  opacity: 0;
-  animation: bg-fade 10s forwards;
+.gradient-bg {
+  background: linear-gradient(
+    120deg,
+    #0f172a,
+    #1e293b,
+    #020617,
+    #1e293b
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 30s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-bg {
+    animation: none;
+  }
 }
 
 body {

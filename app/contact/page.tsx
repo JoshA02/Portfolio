@@ -1,10 +1,11 @@
 'use client';
 
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState, useActionState } from 'react';
 import './style.css';
-import {useFormState, useFormStatus} from 'react-dom';
+import { useFormStatus } from 'react-dom';
 import {submitContact} from '@/actions/submitContact';
 import ReCAPTCHA from 'react-google-recaptcha';
+import type { Metadata } from 'next';
 
 const MAX_MSG_LENGTH = 2500;
 
@@ -14,13 +15,18 @@ const initialFormState: {email: string, message: string, recaptchaToken: string}
   recaptchaToken: ''
 };
 
+export const metadata: Metadata = {
+  title: "Josh Aaron | Contact",
+  description: "Get in touch with Josh Aaron, a junior full-stack developer studying Software Engineering at Nottingham Trent University.",
+};
+
 function SubmitButton({disabled}: {disabled: boolean}) {
   const {pending} = useFormStatus();
   return <button disabled={pending || disabled} className='bg-container min-[400px]:absolute'>Send</button>
 }
 
 export default function Contact() {
-  const [formState, formAction] = useFormState(submitContact, initialFormState);
+  const [formState, formAction] = useActionState(submitContact, initialFormState);
   
   const [charCount, setCharCount] = useState(0);
   const [doShake, setDoShake] = useState(false);
