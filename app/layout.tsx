@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Funnel_Sans, Vend_Sans } from "next/font/google";
+import { Funnel_Display, Funnel_Sans, Vend_Sans } from "next/font/google";
 import "./globals.css";
+import Header from '@/components/Header';
+
+const funnelDisplay = Funnel_Display({
+  variable: "--font-funnel-display",
+  subsets: ["latin"]
+});
 
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
@@ -25,8 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${funnelSans.variable} ${vendSans.variable} antialiased`}
+        className={`bg-background ${funnelDisplay.variable} ${funnelSans.variable} ${vendSans.variable} antialiased`}
       >
+        <Header/>
         {children}
       </body>
     </html>
