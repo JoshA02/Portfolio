@@ -1,18 +1,36 @@
+'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
 import '@/components/header.css'
+import {useState} from 'react'
 
 export default function Header() {
+
+  const [activeLink, setActiveLink] = useState('home');
+
   return (
     <header>
-      <div className='flex-1 justify-start items-center flex'/>
+      <div className='flex-1 justify-start items-center flex'>
+        <Link href="/">
+          <Image
+            src='/logo.svg'
+            alt='Logo'
+            width={200}
+            height={0}
+            priority={true}
+          />
+        </Link>
+      </div>
       
       <div className='flex-1 justify-center items-center flex'>
         <div className='links'>
+          <div className="switcher-active"/>
           <div className="switcher-hover"/>
-          <Link href="#">Home</Link>
-          <Link href="#projects" className='active'>Projects</Link>
-          <Link href="#about">Resume</Link>
-          <Link href="#contact">Contact</Link>
+          <Link href="#" className={activeLink === 'home' ? 'active' : ''} onClick={() => setActiveLink('home')}>Home</Link>
+          <Link href="#projects" className={activeLink === 'projects' ? 'active' : ''} onClick={() => setActiveLink('projects')}>Projects</Link>
+          <Link href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={() => setActiveLink('about')}>Resume</Link>
+          <Link href="#contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>Contact</Link>
         </div>
       </div>
 

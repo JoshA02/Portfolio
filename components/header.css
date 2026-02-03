@@ -39,6 +39,24 @@ header {
   }
 }
 
+.switcher-active {
+  @apply h-11 rounded-full border border-transparent;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: linear-gradient(to bottom, var(--color-switcher-active), var(--color-switcher-active)) padding-box,
+                linear-gradient(to bottom, hsl(from var(--color-accent) h s calc(l + 10)), hsl(from var(--color-accent) h s calc(l - 10))) border-box;
+
+  left: anchor(--active left);
+  right: anchor(--active right);
+
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
 .links a {
   @apply text-foreground border border-transparent flex-1 items-center content-center text-center rounded-full w-25;
   position: relative;
@@ -46,12 +64,10 @@ header {
   
   &.active {
     anchor-name: --active;
-    background: linear-gradient(to bottom, var(--color-switcher-active), var(--color-switcher-active)) padding-box,
-                linear-gradient(to bottom, hsl(from var(--color-accent) h s calc(l + 10)), var(--color-accent)) border-box;
   }
 
-  &:hover {
-  anchor-name: --hover;
+  &:hover:not(.active) {
+    anchor-name: --hover;
   }
 }
 
