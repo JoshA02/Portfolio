@@ -1,10 +1,17 @@
+'use client';
+
 import Card from '@/components/Card';
+import { ExternalLink } from 'lucide-react';
 
 type EducationStatus = 'in-progress' | 'completed' | 'upcoming';
+type Institution = {
+  name: string;
+  url: string;
+}
 
 interface EducationEntry {
   title: string;
-  institution: string;
+  institution: Institution;
   startDate: Date;
   endDate: Date;
 }
@@ -12,19 +19,19 @@ interface EducationEntry {
 const educationData: EducationEntry[] = [
   {
     title: "BSc (Hons) Software Engineering",
-    institution: "Nottingham Trent University, U.K.",
+    institution: {name: "Nottingham Trent University, U.K.", url: "https://www.ntu.ac.uk/"},
     startDate: new Date(2022, 8), // September 2022
     endDate: new Date(2026, 4) // May 2026
   },
   {
     title: "International Study Diploma in Professional Studies",
-    institution: "Northern Arizona University, U.S.A.",
+    institution: {name: "Northern Arizona University, U.S.A.", url: "https://nau.edu/"},
     startDate: new Date(2024, 7), // August 2024
     endDate: new Date(2025, 4) // May 2025
   },
   {
     title: "UAL Level 3 Ext. Diploma - Games Development",
-    institution: "Nottingham College, U.K.",
+    institution: {name: "Nottingham College, U.K.", url: "https://www.nottinghamcollege.ac.uk/"},
     startDate: new Date(2020, 7), // August 2020
     endDate: new Date(2022, 4) // May 2022
   }
@@ -73,7 +80,10 @@ function EducationItem({ entry }: { entry: EducationEntry }) {
         } />
       </h3>
       <div className="mt-1">
-        <CodeLine varName="uni" value={entry.institution} />
+        <div className='flex'>
+          <CodeLine varName="uni" value={entry.institution.name} />
+          <ExternalLink onClick={() => window.open(entry.institution.url, '_blank')} className='ml-1 cursor-pointer' size={12} color="var(--accent)"/>
+        </div>
         <CodeLine varName="dates" value={
           `${entry.startDate.toLocaleString('default', { month: 'short', year: 'numeric' })}
           - 
