@@ -13,6 +13,24 @@
 
   --gradient-border-start: rgba(91, 91, 91, 0.5);
   --gradient-border-end: rgba(91, 91, 91, 0.1);
+
+  /* Status indicator colors */
+  --status-progress-from: #ffa100;
+  --status-progress-to: #b25f00;
+  --status-progress-border: #2b1a00;
+  --status-progress-shadow: rgba(255, 140, 0, 0.25);
+  --status-complete-from: #00ff22;
+  --status-complete-to: #00b218;
+  --status-complete-border: #002b09;
+  --status-complete-shadow: rgba(0, 255, 13, 0.25);
+
+  /* Syntax highlighting colors */
+  --syntax-keyword: #7ddcbf;
+  --syntax-variable: #b2759e;
+  --syntax-punctuation: #777777;
+  --syntax-type: #958fe1;
+  --syntax-string-quote: #91d5a6;
+  --syntax-string-value: #858585;
 }
 
 @theme inline {
@@ -28,6 +46,24 @@
   --color-accent-faded: var(--accent-faded);
   --color-gradient-border-start: var(--gradient-border-start);
   --color-gradient-border-end: var(--gradient-border-end);
+
+  /* Status indicator colors */
+  --color-status-progress-from: var(--status-progress-from);
+  --color-status-progress-to: var(--status-progress-to);
+  --color-status-progress-border: var(--status-progress-border);
+  --color-status-progress-shadow: var(--status-progress-shadow);
+  --color-status-complete-from: var(--status-complete-from);
+  --color-status-complete-to: var(--status-complete-to);
+  --color-status-complete-border: var(--status-complete-border);
+  --color-status-complete-shadow: var(--status-complete-shadow);
+
+  /* Syntax highlighting colors */
+  --color-syntax-keyword: var(--syntax-keyword);
+  --color-syntax-variable: var(--syntax-variable);
+  --color-syntax-punctuation: var(--syntax-punctuation);
+  --color-syntax-type: var(--syntax-type);
+  --color-syntax-string-quote: var(--syntax-string-quote);
+  --color-syntax-string-value: var(--syntax-string-value);
 
   --font-heading: var(--font-funnel-display);
   --font-title: var(--font-funnel-sans);
