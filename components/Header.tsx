@@ -10,7 +10,7 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState('home');
 
   return (
-    <header>
+    <header className='w-full pt-7 pb-17 flex sticky top-0 items-center justify-between px-4 z-50 font-heading'>
       <div className='flex-1 justify-start items-center flex'>
         <Link href="/">
           <Image

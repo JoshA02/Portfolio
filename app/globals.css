@@ -31,6 +31,16 @@
   --syntax-type: #958fe1;
   --syntax-string-quote: #91d5a6;
   --syntax-string-value: #858585;
+
+  /* Traffic light colors */
+  --traffic-light-red: #FF605C;
+  --traffic-light-yellow: #FFBD44;
+  --traffic-light-green: #00CA4E;
+
+  /* Terminal colors */
+  --terminal-bar-bg: rgba(87, 87, 87, 0.2);
+  --terminal-prompt-arrow: #028900;
+  --terminal-prompt-path: #007489;
 }
 
 @theme inline {
@@ -64,6 +74,16 @@
   --color-syntax-type: var(--syntax-type);
   --color-syntax-string-quote: var(--syntax-string-quote);
   --color-syntax-string-value: var(--syntax-string-value);
+
+  /* Traffic light colors */
+  --color-traffic-light-red: var(--traffic-light-red);
+  --color-traffic-light-yellow: var(--traffic-light-yellow);
+  --color-traffic-light-green: var(--traffic-light-green);
+
+  /* Terminal colors */
+  --color-terminal-bar-bg: var(--terminal-bar-bg);
+  --color-terminal-prompt-arrow: var(--terminal-prompt-arrow);
+  --color-terminal-prompt-path: var(--terminal-prompt-path);
 
   --font-heading: var(--font-funnel-display);
   --font-title: var(--font-funnel-sans);

@@ -11,8 +11,6 @@
 }
     
 header {
-  @apply w-full pt-7 pb-17 flex sticky top-0 items-center justify-between px-4 z-10 font-heading;
-
   &:after {
     content: '';
     position: absolute;

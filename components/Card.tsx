@@ -6,13 +6,14 @@ interface CardProps {
   children: React.ReactNode;
   backgroundImage?: string;
   tagline?: string;
+  className?: string;
 }
 
-export default function Card({ id, children, backgroundImage, tagline }: CardProps) {
+export default function Card({ id, children, backgroundImage, tagline, className }: CardProps) {
   return (
     <section 
       id={id}
-      className='gradient-card-border bg-card-bg rounded-xl p-4 h-min relative overflow-hidden z-10'
+      className={`gradient-card-border bg-card-bg rounded-xl p-4 h-min relative overflow-hidden z-10 ${className || ''}`}
       style={{
         boxShadow: "inset -179px 0px 250px -45px rgba(24, 55, 89, 10%)"
       }}
