@@ -3,6 +3,7 @@ import EducationCard from '@/components/EducationCard';
 import TerminalCard from '@/components/TerminalCard';
 import ProjectCard from '@/components/ProjectCard';
 import Carousel from '@/components/Carousel';
+import SkillsCard from '@/components/SkillsCard';
 
 const projects = [
   {
@@ -54,6 +55,8 @@ export default function Home() {
               ))}
             </Carousel>
           </Card>
+
+          <SkillsCard />
 
         </div>
       </main>
