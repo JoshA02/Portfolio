@@ -4,13 +4,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import '@/components/header.css'
 import {useState} from 'react'
+import {usePathname} from 'next/navigation'
 
 type navLink = 'home' | 'projects' | 'about' | 'contact' | undefined;
 
 export default function Header() {
 
+  const pathname = usePathname();
+
   const [activeLink, setActiveLink] = useState<navLink>(
-    window.location.pathname === '/' ? 'home' : window.location.pathname.slice(1) as navLink
+    pathname === '/' ? 'home' : pathname.slice(1) as navLink
   );
 
   return (
