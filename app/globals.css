@@ -7,6 +7,7 @@
   --card-foreground: #333333;
   --accent: #0073FF;
   --accent-faded: #121922;
+  --glow-color: #1837592d;
 
   --border-light: #5B5B5B;
   --border-dark: #1C1C1C;
@@ -56,6 +57,7 @@
   --color-accent-faded: var(--accent-faded);
   --color-gradient-border-start: var(--gradient-border-start);
   --color-gradient-border-end: var(--gradient-border-end);
+  --color-glow: var(--glow-color);
 
   /* Status indicator colors */
   --color-status-progress-from: var(--status-progress-from);

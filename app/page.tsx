@@ -1,10 +1,25 @@
 import Card, { CardButton } from '@/components/Card';
 import EducationCard from '@/components/EducationCard';
 import TerminalCard from '@/components/TerminalCard';
+import ProjectCard from '@/components/ProjectCard';
+import Carousel from '@/components/Carousel';
+
+const projects = [
+  {
+    name: "Evently",
+    description: "An events-browsing platform built using ASP.NET Core Razor Pages with EF Core for database interactions, allowing users to host, discover and register for upcoming events.",
+    technologies: ['aspnet', 'cshtml'] as const,
+  },
+  {
+    name: "Portfolio",
+    description: "This portfolio website built with Next.js, React, and Tailwind CSS to showcase my projects and skills.",
+    technologies: ['react', 'typescript'] as const,
+  }
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen justify-center font-body">
+    <div className="flex min-h-screen pr-30 pl-30 justify-center font-body">
       <main>
         <div className='gap-4 grid grid-cols-2'
           style={{
@@ -25,6 +40,20 @@ export default function Home() {
           <TerminalCard/>
 
           <EducationCard />
+
+          <Card id="projects" tagline="FEATURED PROJECTS">
+            <p className='font-body text-card-fg mb-2'>{"Some of my favourite projects I've worked on recently."}</p>
+            <Carousel>
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  name={project.name}
+                  description={project.description}
+                  technologies={[...project.technologies]}
+                />
+              ))}
+            </Carousel>
+          </Card>
 
         </div>
       </main>

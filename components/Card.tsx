@@ -13,10 +13,12 @@ export default function Card({ id, children, backgroundImage, tagline, className
   return (
     <section 
       id={id}
-      className={`gradient-card-border bg-card-bg rounded-xl p-4 h-min relative overflow-hidden z-10 ${className || ''}`}
-      style={{
-        boxShadow: "inset -179px 0px 250px -45px rgba(24, 55, 89, 10%)"
-      }}
+      className={`gradient-card-border bg-card-bg rounded-xl p-4 h-min overflow-hidden relative z-10 
+        transition-[box-shadow,scale] duration-300 
+              shadow-[inset_-179px_0px_250px_-45px_rgba(24,55,89,0.1)] 
+        active:shadow-[inset_-179px_0px_250px_-45px_rgba(24,55,89,0.1),0_0px_400px_10px_var(--color-glow)] 
+        active:z-20 active:scale-[1.01] 
+        ${className || ''}`}
     >
       {backgroundImage && (
         <Image 
