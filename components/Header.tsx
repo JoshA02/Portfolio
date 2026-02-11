@@ -5,9 +5,13 @@ import Image from 'next/image'
 import '@/components/header.css'
 import {useState} from 'react'
 
+type navLink = 'home' | 'projects' | 'about' | 'contact' | undefined;
+
 export default function Header() {
 
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState<navLink>(
+    window.location.pathname === '/' ? 'home' : window.location.pathname.slice(1) as navLink
+  );
 
   return (
     <header className='w-full pt-7 pb-17 flex sticky top-0 items-center justify-between px-4 z-50 font-heading'>
