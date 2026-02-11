@@ -42,6 +42,9 @@
   --terminal-bar-bg: rgba(87, 87, 87, 0.2);
   --terminal-prompt-arrow: #028900;
   --terminal-prompt-path: #007489;
+
+  /* Card shadow colors */
+  --card-inset-shadow: rgba(24, 55, 89, 0.1);
 }
 
 @theme inline {
@@ -86,6 +89,9 @@
   --color-terminal-bar-bg: var(--terminal-bar-bg);
   --color-terminal-prompt-arrow: var(--terminal-prompt-arrow);
   --color-terminal-prompt-path: var(--terminal-prompt-path);
+
+  /* Card shadow colors */
+  --color-card-inset-shadow: var(--card-inset-shadow);
 
   --font-heading: var(--font-funnel-display);
   --font-title: var(--font-funnel-sans);
