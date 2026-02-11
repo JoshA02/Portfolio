@@ -20,7 +20,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen pr-30 pl-30 justify-center font-body">
+    <div className="flex pr-30 pl-30 justify-center font-body">
       <main>
         <div className='gap-4 grid grid-cols-2'
           style={{

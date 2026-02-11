@@ -27,8 +27,8 @@ export default function Header() {
         <div className='links'>
           <div className="switcher-active"/>
           <div className="switcher-hover"/>
-          <Link href="#" className={activeLink === 'home' ? 'active' : ''} onClick={() => setActiveLink('home')}>Home</Link>
-          <Link href="#projects" className={activeLink === 'projects' ? 'active' : ''} onClick={() => setActiveLink('projects')}>Projects</Link>
+          <Link href="/" className={activeLink === 'home' ? 'active' : ''} onClick={() => setActiveLink('home')}>Home</Link>
+          <Link href="projects" className={activeLink === 'projects' ? 'active' : ''} onClick={() => setActiveLink('projects')}>Projects</Link>
           <Link href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={() => setActiveLink('about')}>Resume</Link>
           <Link href="#contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>Contact</Link>
         </div>
