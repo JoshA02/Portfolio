@@ -22,9 +22,9 @@ function TerminalPrompt({ command }: { command: string }) {
   );
 }
 
-export default function TerminalCard() {
+export default function TerminalCard({className}: { className?: string }) {
   return (
-    <Card id="terminal" className="p-0! flex flex-col h-full! row-span-2!">
+    <Card id="terminal" className={`p-0! flex flex-col h-full! row-span-2! ${className}`}>
       {/* Top Bar */}
       <div className="bg-terminal-bar-bg h-8 flex items-center">
         <TrafficLightButtons />

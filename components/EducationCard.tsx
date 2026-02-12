@@ -41,7 +41,7 @@ function StatusIndicator({ status }: { status: EducationStatus }) {
   const isInProgress = status === 'in-progress';
   return (
     <span 
-      className={`inline-block w-2.75 h-2.75 rounded-full ml-2 ${
+      className={`hidden sm:inline-block w-2.75 h-2.75 rounded-full ml-2 ${
         isInProgress 
           ? 'bg-linear-to-b from-status-progress-from to-status-progress-to border border-status-progress-border shadow-[0px_0px_4px_0px_var(--status-progress-shadow)]' 
           : 'bg-linear-to-b from-status-complete-from to-status-complete-to border border-status-complete-border shadow-[0px_0px_4px_0px_var(--status-complete-shadow)]'

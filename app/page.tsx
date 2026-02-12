@@ -8,13 +8,9 @@ import {favProjects} from '@/constants/projects';
 
 export default function Home() {
   return (
-    <div className="flex pr-30 pl-30 justify-center font-body">
+    <div className="flex lg:pr-30 lg:pl-30 md:pr-12 md:pl-12 pr-4 pl-4 justify-center font-body pt-6 md:pt-0 pb-12">
       <main>
-        <div className='gap-4 grid grid-cols-2'
-          style={{
-            gridTemplateRows: "repeat(2, minmax(0, max-content))"
-          }}
-        >
+        <div className='grid gap-6 grid-cols-1 xl:gap-4 xl:grid-cols-2'>
 
           <Card id="home" backgroundImage="/icon/uk.png" tagline="WELCOME">
             <h3 className='text-lg text-foreground font-title font-semibold'>Josh Aaron Villyat</h3>
@@ -26,7 +22,7 @@ export default function Home() {
             </div>
           </Card>
           
-          <TerminalCard/>
+          <TerminalCard className='hidden xl:flex'/>
 
           <EducationCard />
 

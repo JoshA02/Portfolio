@@ -5,6 +5,7 @@ import Image from 'next/image'
 import '@/components/header.css'
 import {useState} from 'react'
 import {usePathname} from 'next/navigation'
+import { Home, FolderGit2, FileUser, Mail } from 'lucide-react'
 
 type navLink = 'home' | 'projects' | 'about' | 'contact' | undefined;
 
@@ -17,9 +18,9 @@ export default function Header() {
   );
 
   return (
-    <header className='w-full pt-7 pb-17 flex sticky top-0 items-center justify-between px-4 z-50 font-heading'>
+    <header className='w-full md:pt-7 pb-7 md:pb-17 pt-17 flex fixed bottom-0 md:sticky md:top-0 gap-4 items-center justify-between px-4 z-50 font-heading'>
       <div className='flex-1 justify-start items-center flex'>
-        <Link href="/">
+        <Link className='hidden md:block' href="/">
           <Image
             src='/logo.svg'
             alt='Logo'
@@ -34,10 +35,22 @@ export default function Header() {
         <div className='links'>
           <div className="switcher-active"/>
           <div className="switcher-hover"/>
-          <Link href="/" className={activeLink === 'home' ? 'active' : ''} onClick={() => setActiveLink('home')}>Home</Link>
-          <Link href="projects" className={activeLink === 'projects' ? 'active' : ''} onClick={() => setActiveLink('projects')}>Projects</Link>
-          <Link href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={() => setActiveLink('about')}>Resume</Link>
-          <Link href="#contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>Contact</Link>
+          <Link href="/" className={activeLink === 'home' ? 'active' : ''} onClick={() => setActiveLink('home')}>
+            <span className='hidden md:inline'>Home</span>
+            <Home className='inline md:hidden' size={24}/>
+          </Link>
+          <Link href="projects" className={activeLink === 'projects' ? 'active' : ''} onClick={() => setActiveLink('projects')}>
+            <span className='hidden md:inline'>Projects</span>
+            <FolderGit2 className='inline md:hidden' size={24}/>
+          </Link>
+          <Link href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={() => setActiveLink('about')}>
+            <span className='hidden md:inline'>Resume</span>
+            <FileUser className='inline md:hidden' size={24}/>
+          </Link>
+          <Link href="#contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>
+            <span className='hidden md:inline'>Contact</span>
+            <Mail className='inline md:hidden' size={24}/>
+          </Link>
         </div>
       </div>
 
