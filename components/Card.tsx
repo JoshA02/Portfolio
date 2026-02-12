@@ -139,7 +139,8 @@ export default function Card({ id, children, backgroundImage, tagline, className
         transform: `translate(${offset.x}px, ${offset.y}px)`,
         transition: isDragging 
           ? 'box-shadow 0.3s, scale 0.3s' 
-          : 'box-shadow 0.3s, scale 0.3s, transform 0.5s cubic-bezier(.47, 1.64, .41, 1)', // Bouncy easing on release
+          // Thanks to https://easingwizard.com \/
+          : 'box-shadow 0.3s, scale 0.3s, transform 0.5s linear(0, 0.002 0.3%, 0.01 0.7%, 0.024 1.1%, 0.044 1.5%, 0.069 1.9%, 0.098 2.3%, 0.169 3.1%, 0.243 3.8%, 0.336 4.6%, 0.705 7.5%, 0.85 8.7%, 0.981 9.9%, 1.038 10.5%, 1.091 11.1%, 1.138 11.7%, 1.172 12.2%, 1.202 12.7%, 1.233 13.3%, 1.254 13.8%, 1.274 14.4%, 1.288 15%, 1.297 15.6%, 1.301 16.3%, 1.298 17.1%, 1.287 17.9%, 1.271 18.7%, 1.249 19.5%, 1.22 20.4%, 1.184 21.4%, 1.055 24.8%, 1.018 25.9%, 0.985 27%, 0.956 28.2%, 0.934 29.4%, 0.919 30.6%, 0.911 31.9%, 0.91 32.6%, 0.91 33.4%, 0.918 35%, 0.934 36.8%, 0.983 41.1%, 1.004 43.3%, 1.013 44.5%, 1.019 45.7%, 1.024 46.9%, 1.027 48.1%, 1.027 49.7%, 1.025 51.4%, 0.999 59.5%, 0.995 61.8%, 0.992 64.1%, 0.993 67.7%, 1 75.8%, 1.002 80.2%, 1)',
         cursor: isDragging ? 'grabbing' : 'default', // using default for UX clarity; some cards will have interactive elements (carousel)
       }}
       className={`gradient-card-border bg-card-bg rounded-xl p-4 h-min overflow-hidden relative z-10 
