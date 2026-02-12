@@ -47,6 +47,10 @@
   --card-inset-shadow: rgba(24, 55, 89, 0.1);
 }
 
+@media (width < 48rem /* 768px */) {
+  :root { font-size: 0.875rem; }
+}
+
 @theme inline {
 
   /* Colours */

@@ -64,10 +64,11 @@ header {
 }
 
 .links a {
-  @apply text-foreground border border-transparent flex-1 items-center content-center text-center rounded-full w-25;
+  @apply text-foreground border border-transparent flex-1 items-center content-center text-center rounded-full;
   position: relative;
   z-index: 1;
   transition: transform 0.3s ease;
+  width: 70px;
   
   &.active {
     anchor-name: --active;
@@ -80,6 +81,9 @@ header {
   &:hover:not(.active) {
     anchor-name: --hover;
   }
+}
+@media (width >= 48rem /* 768px */) {
+.links a { aspect-ratio: auto; width: calc(var(--spacing) * 25); }
 }
 
 .switcher-hover {
