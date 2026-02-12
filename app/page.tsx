@@ -4,19 +4,7 @@ import TerminalCard from '@/components/TerminalCard';
 import ProjectCard from '@/components/ProjectCard';
 import Carousel from '@/components/Carousel';
 import SkillsCard from '@/components/SkillsCard';
-
-const projects = [
-  {
-    name: "Evently",
-    description: "An events-browsing platform built using ASP.NET Core Razor Pages with EF Core for database interactions, allowing users to host, discover and register for upcoming events.",
-    technologies: ['aspnet', 'cshtml'] as const,
-  },
-  {
-    name: "Portfolio",
-    description: "This portfolio website built with Next.js, React, and Tailwind CSS to showcase my projects and skills.",
-    technologies: ['react', 'typescript'] as const,
-  }
-];
+import {favProjects} from '@/constants/projects';
 
 export default function Home() {
   return (
@@ -27,7 +15,7 @@ export default function Home() {
             gridTemplateRows: "repeat(2, minmax(0, max-content))"
           }}
         >
-          
+
           <Card id="home" backgroundImage="/icon/uk.png" tagline="WELCOME">
             <h3 className='text-lg text-foreground font-title font-semibold'>Josh Aaron Villyat</h3>
             <p className='font-body text-card-fg'>A junior full-stack dev from the UK studying Software Engineering @ NTU</p>
@@ -45,7 +33,7 @@ export default function Home() {
           <Card id="projects" tagline="FEATURED PROJECTS">
             <p className='font-body text-card-fg mb-2'>{"Some of my favourite projects I've worked on recently."}</p>
             <Carousel>
-              {projects.map((project, index) => (
+              {favProjects.map((project, index) => (
                 <ProjectCard
                   key={index}
                   name={project.name}
