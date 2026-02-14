@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <div className='grid gap-6 grid-cols-1 xl:gap-4 xl:grid-cols-2'>
 
-          <Card id="home" backgroundImage="/icon/uk.png" tagline="WELCOME">
+          <Card id="home" backgroundImage="/icon/uk.png" tagline="WELCOME 👋">
             <h3 className='text-lg text-foreground font-title font-semibold'>Josh Aaron Villyat</h3>
             <p className='font-body text-card-fg'>A junior full-stack dev from the UK studying Software Engineering @ NTU</p>
             <div className='flex gap-4 mt-4'>
@@ -27,14 +27,13 @@ export default function Home() {
           <EducationCard />
 
           <Card id="projects" tagline="FEATURED PROJECTS">
-            <p className='font-body text-card-fg mb-2'>{"Some of my favourite projects I've worked on recently."}</p>
+            <p className='font-body text-card-fg mb-2'>{"Some of my favourite projects that I've worked on recently."}</p>
+            {/* <p className='font-mono text-xs text-card-fg mb-2 mt-1'>{"// made with care ❤️. check out www.joshaaron.me/projects for a full list"}</p> */}
             <Carousel>
               {favProjects.map((project, index) => (
                 <ProjectCard
                   key={index}
-                  name={project.name}
-                  description={project.description}
-                  technologies={[...project.technologies]}
+                  project={project}
                 />
               ))}
             </Carousel>

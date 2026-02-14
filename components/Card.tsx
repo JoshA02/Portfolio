@@ -161,6 +161,7 @@ export default function Card({ id, children, backgroundImage, tagline, className
       )}
       {tagline && (
         <h2 className='text-sm font-heading text-accent tracking-widest font-medium'>{"// " + tagline}</h2>
+        // <h2 className='text-sm font-heading text-accent tracking-widest font-medium'>{tagline}</h2>
       )}
       {children}
     </section>
@@ -171,20 +172,21 @@ interface CardButtonProps {
   href: string;
   icon: string;
   alt: string;
+  className?: string;
   children: React.ReactNode;
 }
 
-export function CardButton({ href, icon, alt, children }: CardButtonProps) {  
+export function CardButton({ href, icon, alt, className, children }: CardButtonProps) {  
   return (
     <Link href={href} target="_blank"
-      className='text-sm text-accent border border-transparent rounded-xl
+      className={`text-sm text-accent border border-transparent rounded-xl
                 px-4 py-2 font-bold active:scale-95 font-body
-                flex items-center transition-transform duration-100'
+                flex items-center transition-transform duration-100 ${className || ''}`}
       style={{
         background: "linear-gradient(to bottom, var(--accent-faded), var(--accent-faded)) padding-box, linear-gradient(to bottom, hsl(from var(--accent) h s calc(l + 10)), hsl(from var(--accent) h s calc(l - 10))) border-box"
       }}
     >
-      <Image src={"icon/" + icon} alt={alt} width={16} height={16} className='inline-block mr-2'/>
+      {icon && <Image src={"icon/" + icon} alt={alt} width={16} height={16} className='inline-block mr-2' />}
       {children}
     </Link>
   );

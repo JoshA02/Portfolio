@@ -1,25 +1,12 @@
 'use client';
 
+import {Project, Technology} from '@/constants/projects';
 import Image from 'next/image';
-
-export type Technology = 
-  | 'react' 
-  | 'ios' 
-  | 'android' 
-  | 'typescript' 
-  | 'aspnet' 
-  | 'expressjs' 
-  | 'csharp' 
-  | 'cshtml' 
-  | 'unreal' 
-  | 'next'  
-  | 'bo3';
+import {CardButton} from './Card';
 
 interface ProjectCardProps {
-  name: string;
-  description: string;
-  technologies: Technology[];
-  backgroundImage?: string;
+  project: Project;
+  className?: string;
 }
 
 const technologyIcons: Record<Technology, string> = {
@@ -33,7 +20,18 @@ const technologyIcons: Record<Technology, string> = {
   cshtml: '/icon/tech/cshtml.png',
   unreal: '/icon/tech/unreal.png',
   next: '/icon/tech/next.png',
+  tailwind: '/icon/tech/tailwind.png',
   bo3: '/icon/tech/bo3.png',
+  xd: '/icon/tech/xd.png',
+  figma: '/icon/tech/figma.png',
+  blender: '/icon/tech/blender.png',
+  ue4: '/icon/tech/ue4.png',
+  docker: '/icon/tech/docker.png',
+  spigot: '/icon/tech/spigot.png',
+  java: '/icon/tech/java.png',
+  cpp: '/icon/tech/cpp.png',
+  boost: '/icon/tech/boost.png',
+  python: '/icon/tech/python.png',
 };
 
 function TechIcons({ technologies }: { technologies: Technology[] }) {
@@ -45,7 +43,7 @@ function TechIcons({ technologies }: { technologies: Technology[] }) {
           <div className="h-full aspect-square relative">
             <Image 
               src={technologyIcons[tech]} 
-              alt={tech} 
+              alt={tech}
               fill
               className="object-contain"
             />
@@ -56,14 +54,18 @@ function TechIcons({ technologies }: { technologies: Technology[] }) {
   );
 }
 
-export default function ProjectCard({ name, description, technologies, backgroundImage }: ProjectCardProps) {
+export default function ProjectCard({ project, className }: ProjectCardProps) {
+
+  const isRepoLink = project.href?.includes("github.com") || false;
+  const isSpigotLink = project.href?.includes("spigotmc.org") || false;
+
   return (
-    <div className="gradient-card-border bg-card-bg rounded-xl p-4 w-90 h-56 relative overflow-hidden flex flex-col gap-1">
+    <div className={`gradient-card-border bg-card-bg rounded-xl p-4 w-90 h-56 relative overflow-hidden flex flex-col gap-1 ${className}`}>
       {/* Background image */}
-      {backgroundImage && (
+      {project.backgroundImage && (
         <div className="absolute inset-0 opacity-5 pointer-events-none">
           <Image 
-            src={backgroundImage} 
+            src={project.backgroundImage} 
             alt="" 
             fill
             className="object-cover scale-150"
@@ -74,15 +76,28 @@ export default function ProjectCard({ name, description, technologies, backgroun
       {/* Header with name and tech icons */}
       <div className="flex items-center gap-2 relative z-10">
         <h3 className="text-lg text-foreground font-title font-medium tracking-wide">
-          {name}
+          {project.name}
         </h3>
-        <TechIcons technologies={technologies} />
+        <TechIcons technologies={project.technologies} />
       </div>
       
       {/* Description */}
       <p className="font-body text-card-fg text-sm relative z-10">
-        {description}
+        {project.description}
       </p>
+      
+      {
+        project.href && (
+          <CardButton
+          href={project.href}
+          icon={isRepoLink ? "github.svg" : (isSpigotLink ? "spigot.svg" : "")}
+          alt={isRepoLink ? "link to project repository" : "link to project"}
+          className="absolute bottom-4 right-4 z-10"
+        >
+          {isRepoLink ? "REPO" : "VISIT"}
+        </CardButton>
+        ) 
+      }
     </div>
   );
 }
