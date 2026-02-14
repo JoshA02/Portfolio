@@ -7,7 +7,7 @@ import {useState} from 'react'
 import {usePathname} from 'next/navigation'
 import { Home, FolderGit2, FileUser, Mail } from 'lucide-react'
 
-type navLink = 'home' | 'projects' | 'about' | 'contact' | undefined;
+type navLink = 'home' | 'projects' | 'resume' | 'contact' | undefined;
 
 export default function Header() {
 
@@ -43,11 +43,11 @@ export default function Header() {
             <span className='hidden md:inline'>Projects</span>
             <FolderGit2 className='inline md:hidden' size={24}/>
           </Link>
-          <Link href="#about" className={activeLink === 'about' ? 'active' : ''} onClick={() => setActiveLink('about')}>
+          <Link href="resume" className={activeLink === 'resume' ? 'active' : ''} onClick={() => setActiveLink('resume')}>
             <span className='hidden md:inline'>Resume</span>
             <FileUser className='inline md:hidden' size={24}/>
           </Link>
-          <Link href="#contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>
+          <Link href="contact" className={activeLink === 'contact' ? 'active' : ''} onClick={() => setActiveLink('contact')}>
             <span className='hidden md:inline'>Contact</span>
             <Mail className='inline md:hidden' size={24}/>
           </Link>

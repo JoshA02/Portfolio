@@ -1,15 +1,10 @@
 'use client'
 
+import {Tagline} from '@/components/common'
 import ProjectCard from '@/components/ProjectCard'
 import ToggleButton from '@/components/ToggleButton'
 import {getProjectCategories, getProjects, ProjectCategory, projectCategoryDescriptions} from '@/constants/projects'
 import {useState} from 'react'
-
-function Tagline({tagline}: {tagline: string}) {
-  return (
-    <h2 className='text-sm font-heading text-accent tracking-widest font-medium'>{"// " + tagline}</h2>
-  )
-}
 
 
 export default function Projects() {
@@ -17,7 +12,7 @@ export default function Projects() {
   const [filter, setFilter] = useState<'all' | ProjectCategory>('all');
   
   return (
-    <div className="flex lg:pr-30 lg:pl-30 md:pr-12 md:pl-12 pr-4 pl-4 justify-center font-body pt-6 md:pt-0 pb-12">
+    <div className="flex lg:pr-30 lg:pl-30 md:pr-12 md:pl-12 pr-4 pl-4 justify-center font-body pt-6 md:pt-0 pb-36">
       <main className='flex-1'>
         <Tagline tagline="projects" />
         <div className='flex items-center justify-between mb-6'>
