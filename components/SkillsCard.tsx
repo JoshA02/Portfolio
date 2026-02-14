@@ -39,7 +39,7 @@ const tools = ['Figma', 'VS Code', 'Visual Studio', 'Android Studio', 'Docker', 
 
 export default function SkillsCard() {
   return (
-    <Card tagline="SKILLS">
+    <Card tagline="SKILLS" className='min-h-full'>
       <div className="flex flex-col gap-3">
         <SkillCategory title="Languages" skills={languages} />
         <SkillCategory title="Frameworks" skills={frameworks} />

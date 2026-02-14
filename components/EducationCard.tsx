@@ -52,7 +52,8 @@ function StatusIndicator({ status }: { status: EducationStatus }) {
 
 function CodeLine({ varName, value }: { varName: string; value: string }) {
   return (
-    <p className="font-body text-sm">
+    <div>
+    <p className="font-body text-sm hidden md:block">
       <span className="text-syntax-keyword">const</span>
       {" "}
       <span className="text-syntax-variable">{varName}</span>
@@ -67,13 +68,17 @@ function CodeLine({ varName, value }: { varName: string; value: string }) {
       <span className="text-syntax-string-quote">&quot;</span>
       <span className="text-syntax-punctuation">;</span>
     </p>
+    <p className="font-body text-sm block md:hidden">
+      <span className="text-syntax-string-value">{value}</span>
+    </p>
+    </div>
   );
 }
 
 function EducationItem({ entry }: { entry: EducationEntry }) {
   return (
     <div className="mb-2">
-      <h3 className="text-lg text-foreground font-title font-medium tracking-wide flex items-center">
+      <h3 className="text-md md:text-lg text-foreground font-title font-medium tracking-wide flex items-center">
         {entry.title}
         <StatusIndicator status={
           (entry.startDate <= new Date() && entry.endDate >= new Date()) ? 'in-progress' : (entry.endDate < new Date() ? 'completed' : 'upcoming')

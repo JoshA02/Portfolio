@@ -36,7 +36,10 @@ export default function Projects() {
           ) : (<p></p>)}
         </div>
 
-        <div className='flex gap-6 flex-wrap'>
+        <div 
+          key={filter} // force re-mount and animation on filter change
+          className='flex gap-6 flex-wrap animate-fade-in-up'
+        >
           {getProjects(filter === 'all' ? undefined : filter).map((project, index) => (
             <ProjectCard
               key={index}

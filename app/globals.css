@@ -135,3 +135,22 @@ body {
     linear-gradient(var(--shineAngle), var(--gradient-border-end) 0%, var(--gradient-border-start) 100%) border-box;
   transition: --shineAngle 0.5s ease-out;
 }
+
+/* Fade in and up animation */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1.3s ease-out forwards;
+}
