@@ -33,7 +33,7 @@ function SkillCategory({ title, skills }: SkillCategoryProps) {
   );
 }
 
-const languages = ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'C#', 'Java', 'Swift'];
+const languages = ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'C#', 'Java', 'Swift', 'Kotlin', 'SQL', 'HTML/CSS'];
 const frameworks = ['ASP.NET', 'React', 'Next', 'React Native', 'Express'];
 const tools = ['Figma', 'VS Code', 'Visual Studio', 'Android Studio', 'Docker', 'Git', 'Jenkins', 'Cloudflare', 'Google Cloud Platform'];
 
