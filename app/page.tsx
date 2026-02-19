@@ -26,7 +26,7 @@ export default function Home() {
 
           <EducationCard />
 
-          <Card id="projects" tagline="FEATURED PROJECTS">
+          <Card id="projects" tagline="FEATURED PROJECTS" className='min-h-full'>
             <p className='font-body text-card-fg mb-2'>{"Some of my favourite projects that I've worked on recently."}</p>
             {/* <p className='font-mono text-xs text-card-fg mb-2 mt-1'>{"// made with care ❤️. check out www.joshaaron.me/projects for a full list"}</p> */}
             <Carousel>
