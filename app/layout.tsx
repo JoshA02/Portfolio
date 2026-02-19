@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Funnel_Display, Funnel_Sans, Vend_Sans } from "next/font/google";
 import "./globals.css";
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -31,10 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-background ${funnelDisplay.variable} ${funnelSans.variable} ${vendSans.variable} antialiased`}
+        className={`bg-background ${funnelDisplay.variable} ${funnelSans.variable} ${vendSans.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header/>
-        {children}
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer/>
       </body>
     </html>
   );

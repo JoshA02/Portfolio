@@ -104,21 +104,21 @@ export const projects: Project[] = [
   },
   {
     name: "Weather App",
-    description: "Developed in C++ using object-oriented programming principles, using curl for web requests and the Boost testing library for unit testing. Fetches weather data from a public API and displays it to the user (historic, current, and forecasted data), allowing them to search for weather data by city name. Users can also save favourite cities for quick access and choose to display data in either metric or imperial units.",
+    description: "A C++ weather application using curl for API requests and Boost for unit testing. Displays historic, current, and forecasted weather data with city search, favourites, and metric/imperial unit options.",
     technologies: ['cpp', 'boost'] as const,
     href: "https://github.com/JoshA02/WeatherApp",
     category: 'misc'
   },
   {
     name: "Sueca Scorer",
-    description: "Submitted for a first-year university assignment, SuecaScorer is a command-line application that scores and evaluates matches of the Portuguese card game 'Sueca'. Built using Python, with a focus on object-oriented programming and algorithmic design, implementing scoring algorithms based on traditional rules.",
+    description: "A Python command-line application that scores matches of the Portuguese card game 'Sueca'. Built with a focus on OOP and algorithmic design for a first-year university assignment.",
     technologies: ['python'] as const,
     href: "https://github.com/JoshA02/SuecaScorer",
     category: 'misc'
   },
   {
     name: "Gym POS System",
-    description: "A gym Point of Sale system developed for a first-year university assignment using C++ and WinForms. The system is designed to manage gym hours and handle transactions for gym services, implementing access-levels to restrict higher-level actions from regular staff members. Developed in C++ using object-oriented programming principles and file I/O for data storage.",
+    description: "A C++ WinForms Point of Sale system for managing gym hours and transactions. Features role-based access control and file I/O for data persistence. Built for a first-year university assignment.",
     technologies: ['cpp', 'xd'] as const,
     category: 'misc'
   }
