@@ -1,4 +1,5 @@
 import Card from './Card';
+import { skillCategories, type SkillCategory as SkillCategoryType } from '@/constants/skills';
 
 interface SkillTagProps {
   name: string;
@@ -13,12 +14,7 @@ function SkillTag({ name }: SkillTagProps) {
   );
 }
 
-interface SkillCategoryProps {
-  title: string;
-  skills: string[];
-}
-
-function SkillCategory({ title, skills }: SkillCategoryProps) {
+function SkillCategory({ title, skills }: SkillCategoryType) {
   return (
     <div className="flex flex-col gap-2 w-full">
       <h3 className="text-lg text-foreground font-title font-medium tracking-wide">
@@ -33,17 +29,13 @@ function SkillCategory({ title, skills }: SkillCategoryProps) {
   );
 }
 
-const languages = ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'C#', 'Java', 'Swift', 'Kotlin', 'SQL', 'HTML/CSS'];
-const frameworks = ['ASP.NET', 'React', 'Next', 'React Native', 'Express'];
-const tools = ['Figma', 'VS Code', 'Visual Studio', 'Android Studio', 'Docker', 'Git', 'Jenkins', 'Cloudflare', 'Google Cloud Platform'];
-
 export default function SkillsCard() {
   return (
     <Card tagline="SKILLS" className='min-h-full'>
       <div className="flex flex-col gap-3">
-        <SkillCategory title="Languages" skills={languages} />
-        <SkillCategory title="Frameworks" skills={frameworks} />
-        <SkillCategory title="Tools" skills={tools} />
+        {skillCategories.map((category) => (
+          <SkillCategory key={category.title} title={category.title} skills={category.skills} />
+        ))}
       </div>
     </Card>
   );

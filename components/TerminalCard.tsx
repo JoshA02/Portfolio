@@ -4,6 +4,7 @@ import Card from '@/components/Card';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { getProjects, getProjectCategories, ProjectCategory } from '@/constants/projects';
 import { educationData, getEducationStatus, formatEducationDates } from '@/constants/education';
+import { skillCategories } from '@/constants/skills';
 
 type HistoryEntry = {
   command: string;
@@ -155,10 +156,11 @@ const commands: Record<string, (args: string[]) => React.ReactNode> = {
   skills: () => (
     <div>
       <p className="text-accent mb-1">Technical Skills:</p>
-      <p><span className="text-syntax-keyword">Languages:</span> TypeScript, JavaScript, C#, C++, Java, Python</p>
-      <p><span className="text-syntax-keyword">Frontend:</span> React, Next.js, Tailwind CSS, HTML/CSS</p>
-      <p><span className="text-syntax-keyword">Backend:</span> Node.js, Express.js, ASP.NET Core</p>
-      <p><span className="text-syntax-keyword">Tools:</span> Git, Docker, Figma, VS Code</p>
+      {skillCategories.map((category) => (
+        <p key={category.title}>
+          <span className="text-syntax-keyword">{category.title}:</span> {category.skills.join(', ')}
+        </p>
+      ))}
     </div>
   ),
 
@@ -226,7 +228,7 @@ export default function TerminalCard({ className }: { className?: string }) {
       if (matches.length === 1) {
         setCurrentInput(matches[0]);
       } else if (matches.length > 1) {
-        
+
         // Find common prefix among matches
         let commonPrefix = matches[0];
         for (const match of matches) {
