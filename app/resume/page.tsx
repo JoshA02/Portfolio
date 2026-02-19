@@ -26,7 +26,7 @@ export default function Resume() {
         </div>
         
         {/* Resume display */}
-        <div className='gradient-card-border bg-card-bg rounded-xl p-4 md:p-6 shadow-lg'>
+        <div className='animate-fade-in-up gradient-card-border bg-card-bg rounded-xl p-4 md:p-6 shadow-lg'>
           <div className='relative w-full'>
             <Image 
               src="/resume.jpg" 

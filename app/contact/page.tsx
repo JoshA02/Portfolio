@@ -111,7 +111,7 @@ export default function Contact() {
         <Tagline tagline="contact-form" />
         <h1 className='text-3xl text-foreground font-title font-semibold tracking-wide mb-4'>{"Let's Connect"}</h1>
         
-        <Card draggable={false} className='px-5 py-4'>
+        <Card draggable={false} className='animate-fade-in-up px-5 py-4'>
           <div className='flex flex-col gap-4'>
 
             {/* Don't Like Forms? Section */}

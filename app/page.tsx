@@ -8,7 +8,7 @@ import {favProjects} from '@/constants/projects';
 
 export default function Home() {
   return (
-    <div className="flex lg:pr-30 lg:pl-30 md:pr-12 md:pl-12 pr-4 pl-4 justify-center font-body pt-6 md:pt-0 pb-36">
+    <div className="animate-fade-in-up flex lg:pr-30 lg:pl-30 md:pr-12 md:pl-12 pr-4 pl-4 justify-center font-body pt-6 md:pt-0 pb-36">
       <main>
         <div className='grid gap-6 grid-cols-1 xl:gap-4 xl:grid-cols-2'>
 
