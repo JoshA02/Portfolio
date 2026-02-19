@@ -1,16 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #121212;
-  --card-background: #f9f9f9;
-  --card-foreground: #333333;
+  --background: #0D0D0D;
+  --foreground: #FFFF;
+  --card-background: #0A0A0A;
+  --card-foreground: #777777;
+
+  --border-light: #A3A3A3;
+  --border-dark: #3A3A3A;
+
+  /* --background: #ffffff; */
+  /* --foreground: #121212; */
+  /* --card-background: #f9f9f9; */
+  /* --card-foreground: #333333; */
   --accent: #0073FF;
   --accent-faded: #121922;
   --glow-color: #1837592d;
 
-  --border-light: #5B5B5B;
-  --border-dark: #1C1C1C;
+  /* --border-light: #5B5B5B; */
+  /* --border-dark: #1C1C1C; */
 
   --gradient-border-start: rgba(91, 91, 91, 0.5);
   --gradient-border-end: rgba(91, 91, 91, 0.1);
@@ -109,7 +117,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0D0D0D;
     --foreground: #FFFF;
@@ -119,7 +127,7 @@
     --border-light: #A3A3A3;
     --border-dark: #3A3A3A;
   }
-}
+} */
 
 @property --shineAngle {
   syntax: '<angle>';

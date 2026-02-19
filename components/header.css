@@ -2,13 +2,14 @@
 @reference "../app/globals.css";
 
 :root {
-  --color-switcher-active: #E5E5E5;
+  --color-switcher-active: #171717;
+  /* --color-switcher-active: #E5E5E5; */
 }
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --color-switcher-active: #171717;
   }
-}
+} */
     
 header {
   &:after {
