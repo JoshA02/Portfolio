@@ -1,6 +1,7 @@
 import {Tagline} from '@/components/common'
 import Image from 'next/image'
 import { Download } from 'lucide-react'
+import {CardButton} from '@/components/Card'
 
 export default function Resume() {
   return (
@@ -9,8 +10,10 @@ export default function Resume() {
         <Tagline tagline="resume" />
         <div className='flex items-center justify-between mb-6 flex-wrap gap-4'>
           <h1 className='text-3xl text-foreground font-title font-semibold tracking-wide'>My Resume</h1>
+          
+          
           <a 
-            href="/Josh-Villyat-Resume.pdf" 
+            href="/Josh-Villyat-Resume.pdf"
             download
             className='flex items-center gap-2 bg-accent-faded border border-accent/40 
                        text-accent font-body font-bold text-sm px-5 py-2.5 rounded-xl
@@ -19,6 +22,7 @@ export default function Resume() {
             <Download className="w-4 h-4" />
             DOWNLOAD PDF
           </a>
+
         </div>
         
         {/* Resume display */}

@@ -11,6 +11,7 @@ interface CardProps {
   tagline?: string;
   className?: string;
   maxDragDistance?: number;
+  draggable?: boolean; // Optional prop to enable/disable dragging
 }
 
 // Normalize angle difference to prevent jumps across 180/-180 boundary
@@ -33,7 +34,7 @@ function applyResistance(value: number, maxValue: number): number {
   return value * Math.max(0.1, resistance);
 }
 
-export default function Card({ id, children, backgroundImage, tagline, className, maxDragDistance = 30 }: CardProps) {
+export default function Card({ id, children, backgroundImage, tagline, className, maxDragDistance = 30, draggable = true }: CardProps) {
   const cardRef = useRef<HTMLElement>(null);
   const previousAngleRef = useRef<number>(0);
   
@@ -131,10 +132,10 @@ export default function Card({ id, children, backgroundImage, tagline, className
     <section 
       ref={cardRef}
       id={id}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
+      onMouseDown={draggable ? handleMouseDown : undefined}
+      onMouseMove={draggable ? handleMouseMove : undefined}
+      onMouseUp={draggable ? handleMouseUp : undefined}
+      onMouseLeave={draggable ? handleMouseLeave : undefined}
       style={{
         transform: `translate(${offset.x}px, ${offset.y}px)`,
         transition: isDragging 

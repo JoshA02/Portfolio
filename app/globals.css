@@ -45,6 +45,9 @@
 
   /* Card shadow colors */
   --card-inset-shadow: rgba(24, 55, 89, 0.1);
+
+  /* Form colours */
+  --form-label: #292929;
 }
 
 @media (width < 48rem /* 768px */) {
@@ -96,6 +99,9 @@
 
   /* Card shadow colors */
   --color-card-inset-shadow: var(--card-inset-shadow);
+
+  /* Form colors */
+  --color-form-label: var(--form-label);
 
   --font-heading: var(--font-funnel-display);
   --font-title: var(--font-funnel-sans);
