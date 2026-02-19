@@ -22,7 +22,7 @@ export default function Home() {
             </div>
           </Card>
           
-          <TerminalCard className='hidden xl:flex'/>
+          <TerminalCard className='hidden row-span-2 min-h-full max-h-full xl:flex'/>
 
           <EducationCard />
 

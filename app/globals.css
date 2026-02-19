@@ -50,6 +50,7 @@
   --terminal-bar-bg: rgba(87, 87, 87, 0.2);
   --terminal-prompt-arrow: #028900;
   --terminal-prompt-path: #007489;
+  --terminal-scrollbar-thumb: #4a4a4a;
 
   /* Card shadow colors */
   --card-inset-shadow: rgba(24, 55, 89, 0.1);
@@ -104,6 +105,7 @@
   --color-terminal-bar-bg: var(--terminal-bar-bg);
   --color-terminal-prompt-arrow: var(--terminal-prompt-arrow);
   --color-terminal-prompt-path: var(--terminal-prompt-path);
+  --color-terminal-scrollbar-thumb: var(--terminal-scrollbar-thumb);
 
   /* Card shadow colors */
   --color-card-inset-shadow: var(--card-inset-shadow);
