@@ -13,7 +13,7 @@ export default function Resume() {
           
           
           <a 
-            href="/Josh-Villyat-Resume.pdf"
+            href="/Josh-Aaron-Resume.pdf"
             download
             className='flex items-center gap-2 bg-accent-faded border border-accent/40 
                        text-accent font-body font-bold text-sm px-5 py-2.5 rounded-xl
@@ -30,7 +30,7 @@ export default function Resume() {
           <div className='relative w-full'>
             <Image 
               src="/resume.jpg" 
-              alt="Josh Villyat's Resume"
+              alt="Josh Aaron Villyat's Resume"
               width={0}
               height={0}
               sizes="100vw"
