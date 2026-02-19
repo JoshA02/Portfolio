@@ -215,6 +215,29 @@ export default function TerminalCard({ className }: { className?: string }) {
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSubmit();
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const input = currentInput.trim().toLowerCase();
+      if (!input) return;
+      
+      const commandNames = Object.keys(commands);
+      const matches = commandNames.filter(cmd => cmd.startsWith(input));
+      
+      if (matches.length === 1) {
+        setCurrentInput(matches[0]);
+      } else if (matches.length > 1) {
+        
+        // Find common prefix among matches
+        let commonPrefix = matches[0];
+        for (const match of matches) {
+          while (!match.startsWith(commonPrefix)) {
+            commonPrefix = commonPrefix.slice(0, -1);
+          }
+        }
+        if (commonPrefix.length > input.length) {
+          setCurrentInput(commonPrefix);
+        }
+      }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (history.length === 0) return;
@@ -233,7 +256,7 @@ export default function TerminalCard({ className }: { className?: string }) {
         setCurrentInput(history[newIndex].command);
       }
     }
-  }, [handleSubmit, history, historyIndex]);
+  }, [handleSubmit, history, historyIndex, currentInput]);
 
   const handleContentClick = () => {
     // Focus the input when clicking anywhere in the terminal content
@@ -253,7 +276,7 @@ export default function TerminalCard({ className }: { className?: string }) {
         <div 
           ref={contentRef}
           onClick={handleContentClick}
-          className="absolute top-0 bottom-0 min-h-full px-3.5 py-2 overflow-y-scroll cursor-text [&::-webkit-scrollbar]:w-[14px] [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-terminal-scrollbar-thumb [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-[4px] [&::-webkit-scrollbar-thumb]:border-solid [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-clip-padding"
+          className="absolute inset-0 min-h-full px-3.5 py-2 overflow-y-scroll cursor-text [&::-webkit-scrollbar]:w-3.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-terminal-scrollbar-thumb [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-4 [&::-webkit-scrollbar-thumb]:border-solid [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-clip-padding"
         >
           {history.map((entry, i) => (
             <div key={i}>
