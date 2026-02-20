@@ -1,0 +1,12 @@
+# ignore node modules and build artifacts
+node_modules/
+.next/
+
+# ignore logs and environment files
+*.log
+.env
+.env.*
+
+# ignore IDE and OS files
+.vscode/
+.DS_Store

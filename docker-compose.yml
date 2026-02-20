@@ -2,7 +2,8 @@ services:
   portfolio:
     build:
       context: .
-      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_RECAPTCHA_SITE_KEY=${NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
     container_name: portfolio
     restart: unless-stopped
     ports:

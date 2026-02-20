@@ -15,6 +15,10 @@ RUN pnpm install --frozen-lockfile
 # Copy source files
 COPY . .
 
+# Build arguments for Next.js public env vars (needed at build time)
+ARG NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY
+
 # Build the application
 RUN pnpm build
 
