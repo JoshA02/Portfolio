@@ -44,12 +44,3 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         build-args: |
           NEXT_PUBLIC_RECAPTCHA_SITE_KEY=${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
-    
-    - name: Trigger Jenkins deployment
-      if: github.event_name != 'pull_request'
-      run: |
-        curl -X POST \
-          -H "CF-Access-Client-Id: ${{ secrets.CF_ACCESS_CLIENT_ID }}" \
-          -H "CF-Access-Client-Secret: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}" \
-          --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_API_TOKEN }}" \
-          "https://jenkins.joshaaron.me/job/Deploy%20Portfolio/buildWithParameters?SHA=${{ github.sha }}"
