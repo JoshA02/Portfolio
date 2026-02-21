@@ -6,7 +6,6 @@ import ToggleButton from '@/components/ToggleButton'
 import {getProjectCategories, getProjects, ProjectCategory, projectCategoryDescriptions} from '@/constants/projects'
 import {useState} from 'react'
 
-
 export default function Projects() {
   
   const [filter, setFilter] = useState<'all' | ProjectCategory>('all');

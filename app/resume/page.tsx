@@ -2,6 +2,17 @@ import {Tagline} from '@/components/common'
 import Image from 'next/image'
 import { Download } from 'lucide-react'
 import {CardButton} from '@/components/Card'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Resume",
+  description: "View and download Josh Aaron's professional resume. Software Engineering student at Nottingham Trent University with experience in full-stack development.",
+  keywords: ["Josh Aaron resume", "Josh Villyat CV", "software engineer resume", "developer CV", "NTU student", "hire developer", "full-stack resume"],
+  openGraph: {
+    title: "Resume | Josh Aaron",
+    description: "View and download Josh Aaron's professional resume.",
+  },
+};
 
 export default function Resume() {
   return (

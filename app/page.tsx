@@ -5,6 +5,17 @@ import ProjectCard from '@/components/ProjectCard';
 import Carousel from '@/components/Carousel';
 import SkillsCard from '@/components/SkillsCard';
 import {favProjects} from '@/constants/projects';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to Josh Aaron's portfolio. A junior full-stack developer from the UK specialising in React, Next.js, TypeScript, and modern web technologies.",
+  keywords: ["Josh Aaron portfolio", "Josh Villyat", "software engineer portfolio", "web developer UK", "full-stack developer", "React developer", "Next.js portfolio"],
+  openGraph: {
+    title: "Josh Aaron | Software Engineer",
+    description: "Welcome to Josh Aaron's portfolio. A junior full-stack developer from the UK.",
+  },
+};
 
 export default function Home() {
   return (

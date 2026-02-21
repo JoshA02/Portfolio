@@ -21,8 +21,31 @@ const vendSans = Vend_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Josh Aaron | Software Engineer",
+  title: {
+    default: "Josh Aaron | Software Engineer",
+    template: "%s | Josh Aaron"
+  },
   description: "A junior software engineer building web and mobile applications. Currently studying Software Engineering @ Nottingham Trent University.",
+  keywords: ["Josh Aaron", "Josh Villyat", "Josh Aaron Villyat", "Villyat", "software engineer", "swe", "software developer", "web developer", "full-stack developer", "frontend developer", "backend developer", "React", "Next.js", "TypeScript", "JavaScript", "portfolio", "Nottingham Trent University", "NTU", "UK developer", "junior developer", "mobile developer"],
+  authors: [{ name: "Josh Aaron Villyat" }],
+  creator: "Josh Aaron Villyat",
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://joshaaron.me",
+    siteName: "Josh Aaron | Software Engineer",
+    title: "Josh Aaron | Software Engineer",
+    description: "A junior software engineer building web and mobile applications. Currently studying Software Engineering @ Nottingham Trent University.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Josh Aaron | Software Engineer",
+    description: "A junior software engineer building web and mobile applications.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
